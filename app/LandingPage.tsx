@@ -6,6 +6,16 @@ export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
   const [showMobile, setShowMobile] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [heroSlide, setHeroSlide] = useState(0);
+  const heroSlides = [
+    "https://ik.imagekit.io/qcvroy8xpd/Asyrc.png?updatedAt=1776008954670",
+    "https://ik.imagekit.io/qcvroy8xpd/Sylicone.jpeg?updatedAt=1776009369481",
+    "https://ik.imagekit.io/qcvroy8xpd/580c524e-ceaa-4322-801d-0e8c216bebdd.png?updatedAt=1776666137369",
+  ];
+  useEffect(() => {
+    const t = setInterval(() => setHeroSlide((s) => (s + 1) % heroSlides.length), 6500);
+    return () => clearInterval(t);
+  }, [heroSlides.length]);
   const [currentVideo, setCurrentVideo] = useState(0);
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
@@ -174,6 +184,26 @@ export default function LandingPage() {
       </nav>
 
       <section className="hero" id="hero">
+        {heroSlides.map((src, i) => (
+          <div
+            key={i}
+            className={`hero-bg-slide${i === heroSlide ? " active" : ""}`}
+            style={{ backgroundImage: `url('${src}')` }}
+            aria-hidden="true"
+          />
+        ))}
+        <div className="hero-bg-dots" role="tablist" aria-label="Hero background">
+          {heroSlides.map((_, i) => (
+            <button
+              key={i}
+              className={i === heroSlide ? "active" : ""}
+              onClick={() => setHeroSlide(i)}
+              aria-label={`Background ${i + 1}`}
+              aria-selected={i === heroSlide}
+              type="button"
+            />
+          ))}
+        </div>
         <svg className="hero-lines" viewBox="0 0 1440 900" preserveAspectRatio="none">
           <line x1="0" y1="0" x2="1440" y2="900" stroke="rgba(200,16,46,.06)" strokeWidth="1" />
           <line x1="1440" y1="0" x2="0" y2="900" stroke="rgba(255,255,255,.02)" strokeWidth="1" />

@@ -73,7 +73,12 @@ img{max-width:100%;display:block;margin:0;border:0;}a{text-decoration:none;color
 .nav-pill i{font-size:10px!important;}
 
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:100px 0 80px;background:var(--blue);}
-.hero::before{content:'';position:absolute;inset:0;background-image:url('https://ik.imagekit.io/qcvroy8xpd/Asyrc.png?updatedAt=1776008954670');background-size:cover;background-position:center;opacity:.78;z-index:0;}
+.hero::before{display:none;}
+.hero-bg-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.06);transition:opacity 1.2s ease,transform 7s ease;z-index:0;}
+.hero-bg-slide.active{opacity:.78;transform:scale(1);}
+.hero-bg-dots{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:4;}
+.hero-bg-dots button{width:10px;height:10px;background:rgba(255,255,255,.4);border:none;cursor:pointer;transition:background .25s,width .25s;padding:0;border-radius:50%!important;}
+.hero-bg-dots button.active{background:var(--amber);width:32px;border-radius:5px!important;}
 .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(27,58,92,.85) 0%,rgba(27,58,92,.72) 40%,rgba(27,58,92,.5) 70%,rgba(27,58,92,.62) 100%),repeating-linear-gradient(45deg,transparent 0 22px,rgba(255,255,255,.015) 22px 23px);z-index:1;pointer-events:none;}
 .hero>*{position:relative;z-index:2;}
 .hero-lines{position:absolute;inset:0;pointer-events:none;z-index:1;}
