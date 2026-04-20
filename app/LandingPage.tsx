@@ -115,11 +115,6 @@ export default function LandingPage() {
             <LogoMark size={34} />
             <span className="nav-br-txt">Roof Coat</span>
           </a>
-          <div className="nav-act">
-            <a href="#hero-form" className="btn-pill btn-pill-red nav-pill" onClick={smoothScroll}>
-              <span>Get Free Quote</span>
-            </a>
-          </div>
         </div>
       </nav>
 
@@ -154,12 +149,13 @@ export default function LandingPage() {
                 <div><div className="stat-n">20 yr</div><div className="stat-l">Max Warranty</div></div>
               </div>
 
-              <div className="hero-cta-row rv d4">
-                <a href="#hero-form" className="btn-pill btn-pill-red" onClick={smoothScroll}>
-                  <span>Get My Free Quote</span>
-                </a>
+              <div className="hero-arrow rv d4" aria-hidden="true">
+                <span className="hero-arrow-txt">Fill out the form</span>
+                <svg className="hero-arrow-svg" viewBox="0 0 140 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 8 18 C 35 5, 80 8, 115 42" stroke="var(--amber)" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="0" />
+                  <path d="M 105 30 L 117 44 L 100 48" stroke="var(--amber)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                </svg>
               </div>
-              <p className="hero-fine rv d5">Written report + fixed-price quote within 24 hrs.</p>
             </div>
             <div className="col-lg-5">
               <div className="hf-wrap">
@@ -551,7 +547,7 @@ export default function LandingPage() {
 
       <div className={`mob-s${showMobile ? " show" : ""}`} id="mobS">
         <a href="#hero-form" className="mob-cta" onClick={smoothScroll}>
-          Get My Free Quote <i className="fas fa-arrow-right" style={{ marginLeft: 6, fontSize: 11 }}></i>
+          Get My Online Estimate <i className="fas fa-arrow-right" style={{ marginLeft: 6, fontSize: 11 }}></i>
         </a>
       </div>
     </>
