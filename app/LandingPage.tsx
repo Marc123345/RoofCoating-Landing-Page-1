@@ -31,6 +31,16 @@ export default function LandingPage() {
   const prevVid = () => switchVid(currentVideo === 0 ? videos.length - 1 : currentVideo - 1);
   const nextVid = () => switchVid((currentVideo + 1) % videos.length);
 
+  const galleryRef = useRef<HTMLDivElement | null>(null);
+  const workImages = ["34.png", "20.png", "35.png", "22.png", "37.png", "26.png", "30.png", "23.png", "29.png", "13.png"];
+  const scrollGallery = (dir: -1 | 1) => {
+    const track = galleryRef.current;
+    if (!track) return;
+    const slide = track.querySelector(".wc-slide") as HTMLElement | null;
+    const delta = slide ? slide.offsetWidth + 14 : 320;
+    track.scrollBy({ left: delta * dir, behavior: "smooth" });
+  };
+
   useEffect(() => {
     const io = new IntersectionObserver(
       (entries) => {
@@ -418,14 +428,16 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="work-grid">
-            {["21", "14", "11", "19", "32", "12", "10", "9", "27", "24", "26", "29"].map((id, i) => (
-              <div key={id} className={`work-card rv${i > 0 ? " d" + (i % 5 || 1) : ""}`}>
-                <div className="work-img" style={{ backgroundImage: `url('https://ik.imagekit.io/qcvroy8xpd/${id}.png')` }}>
-                  <span className="work-ba">Before / After</span>
+          <div className="work-carousel">
+            <button className="wc-nav wc-prev" onClick={() => scrollGallery(-1)} aria-label="Previous projects" type="button"><i className="fas fa-chevron-left"></i></button>
+            <div className="wc-track" ref={galleryRef}>
+              {workImages.map((file, i) => (
+                <div key={i} className="wc-slide">
+                  <img src={`https://ik.imagekit.io/qcvroy8xpd/${file}`} alt="Before and after roof coating project" loading="lazy" />
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <button className="wc-nav wc-next" onClick={() => scrollGallery(1)} aria-label="Next projects" type="button"><i className="fas fa-chevron-right"></i></button>
           </div>
         </div>
       </section>
@@ -527,11 +539,6 @@ export default function LandingPage() {
                   <div className="ft-brand">Roof Coat</div>
                 </div>
                 <p className="ft-blurb">We restore commercial roofs across [State] for building owners, property managers, and facilities teams. Manufacturer-backed silicone and acrylic systems. No tear-offs, no tenant disruption.</p>
-                <div className="ft-contact">
-                  <a href="mailto:quotes@roofcoat.com" className="ft-c-item"><i className="fas fa-envelope"></i> quotes@roofcoat.com</a>
-                  <div className="ft-c-item"><i className="fas fa-map-marker-alt"></i> 1234 Industry Ave, [City, ST] 00000</div>
-                  <div className="ft-c-item"><i className="fas fa-clock"></i> Mon–Sat &middot; 7am–6pm</div>
-                </div>
               </div>
 
               <div className="ft-col">
