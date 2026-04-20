@@ -43,7 +43,7 @@ export default function LandingPage() {
       },
       { threshold: 0.08 }
     );
-    document.querySelectorAll(".rv").forEach((el) => io.observe(el));
+    document.querySelectorAll(".rv, .zoom-in, .slide-left, .slide-right").forEach((el) => io.observe(el));
 
     const onScroll = () => {
       setScrolled(window.scrollY > 60);
@@ -158,34 +158,41 @@ export default function LandingPage() {
             <div className="col-lg-7">
               <div className="hero-badge rv">
                 <div className="dot"></div>
-                <span>Serving [City/Region] Since 2011</span>
+                <span>Trusted by 1,200+ Commercial Owners Since 2011</span>
               </div>
               <h1 className="rv d1 hero-h1-stat">
-                <span className="hero-stat-big">91% of commercial roofs</span> don't need replacement.{" "}
-                <span className="ul">They need restoration.</span>
+                Extend Your Roof's Life by <span className="hero-stat-big">10–20 Years</span>
+                <br />
+                <span className="ul">For Far Less Than Replacement</span>
               </h1>
               <p className="hero-sub rv d2">
-                Silicone coating restores flat, metal, and modified bitumen roofs in 1–3 days — saving building owners up to 75% vs. replacement, backed by manufacturer warranties up to 20 years.
+                Professional roof coating seals leaks, reflects heat, and slashes energy bills — without tearing off your existing roof.
               </p>
-              <div className="hero-stats rv d3">
-                <div><div className="stat-n">1,200+</div><div className="stat-l">Roofs Coated</div></div>
-                <div><div className="stat-n">Up to 75%</div><div className="stat-l">Avg. Savings</div></div>
-                <div><div className="stat-n">20 yr</div><div className="stat-l">Max Warranty</div></div>
+              <ul className="hero-checks rv d3">
+                <li><i className="fas fa-check"></i> Save up to 75% vs. full roof replacement</li>
+                <li><i className="fas fa-check"></i> Extend roof life 10–20 years, manufacturer-backed</li>
+                <li><i className="fas fa-check"></i> Cut cooling costs up to 20% &middot; 1–3 day install</li>
+              </ul>
+              <div className="hero-proof rv d4">
+                <div className="hero-stars" aria-label="4.9 out of 5 stars">
+                  <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i>
+                </div>
+                <span className="hero-proof-txt"><strong>4.9 / 5</strong> &middot; 127 Google Reviews &middot; <strong>1,200+ roofs coated</strong></span>
               </div>
 
             </div>
             <div className="col-lg-5">
               <div className="hf-wrap">
                 <div className="hero-arrow rv" aria-hidden="true">
-                  <span className="hero-arrow-txt">Fill out the form</span>
-                  <svg className="hero-arrow-svg" viewBox="0 0 120 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 10 10 C 25 50, 55 55, 95 55" stroke="var(--amber)" strokeWidth="2.5" strokeLinecap="round" />
-                    <path d="M 85 45 L 98 56 L 86 62" stroke="var(--amber)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                  <span className="hero-arrow-txt">Start here</span>
+                  <svg className="hero-arrow-svg" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 10 12 C 30 12, 80 14, 95 78" stroke="var(--amber)" strokeWidth="2.5" strokeLinecap="round" />
+                    <path d="M 82 64 L 96 82 L 108 60" stroke="var(--amber)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                   </svg>
                 </div>
-                <div className="hf rv d2" id="hero-form">
+                <div className="hf slide-right" id="hero-form">
                   <div className="hf-eyebrow"><span className="hf-pulse"></span>Free Inspection &middot; 2-Hr Response</div>
-                  <h3>Get Your Free Online Estimate</h3>
+                  <h3>Free Roof Coating Assessment</h3>
                   <p className="fs">Takes 30 seconds. Written report with coating options + fixed-price quote within 24 hrs.</p>
                   <div className="fg"><label className="fl">Full Name</label><input type="text" className="fi" placeholder="John Smith" required /></div>
                   <div className="fg"><label className="fl">Email</label><input type="email" className="fi" placeholder="you@example.com" required /></div>
@@ -196,7 +203,7 @@ export default function LandingPage() {
                   </div>
                   <div className="fg"><label className="fl">Square Footage / Notes <span className="fl-opt">(optional)</span></label><textarea className="fi fi-area" placeholder="Approx sq ft, roof age, known issues — if you have them" rows={3}></textarea></div>
                   <button className="btn-p btn-full" type="submit">
-                    Get My Online Estimate <i className="fas fa-arrow-right" style={{ marginLeft: 8, fontSize: 12 }}></i>
+                    Get My Free Assessment <i className="fas fa-arrow-right" style={{ marginLeft: 8, fontSize: 12 }}></i>
                   </button>
                   <div className="hf-proof">
                     <div className="hf-stars"><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><strong>4.9</strong></div>
@@ -214,14 +221,14 @@ export default function LandingPage() {
       <section className="prob-s">
         <div className="wrap">
           <div className="prob-lay">
-            <div className="prob-text">
-              <div className="tag rv"><span>The Problem</span></div>
-              <h2 className="h2 rv d1">Roof Leaking?<br />You Don't Need a $150,000 Replacement.</h2>
-              <p className="body-t rv d2">Every time it rains, you hold your breath. Water stains on ceiling tiles. Buckets in the hallway. Tenants complaining. You called a roofer — they quoted six figures for a full tear-off.</p>
-              <p className="body-t rv d3">But here's what most roofers won't tell you: if your roof deck is structurally sound, you don't need to replace it. You need to <strong>restore</strong> it.</p>
-              <div className="pq rv d4">A professional-grade silicone roof coating creates a seamless, waterproof membrane over your existing roof. No tear-off. No dumpsters. No weeks of noise.</div>
+            <div className="prob-text slide-left">
+              <div className="tag"><span>The Problem</span></div>
+              <h2 className="h2">Roof Leaking?<br />You Don't Need a $150,000 Replacement.</h2>
+              <p className="body-t">Every time it rains, you hold your breath. Water stains on ceiling tiles. Buckets in the hallway. Tenants complaining. You called a roofer — they quoted six figures for a full tear-off.</p>
+              <p className="body-t">But here's what most roofers won't tell you: if your roof deck is structurally sound, you don't need to replace it. You need to <strong>restore</strong> it.</p>
+              <div className="pq">A professional-grade silicone roof coating creates a seamless, waterproof membrane over your existing roof. No tear-off. No dumpsters. No weeks of noise.</div>
             </div>
-            <div className="prob-vis rv d2">
+            <div className="prob-vis slide-right">
               <div className="ba">
                 <div className="ba-g">
                   <div
@@ -253,7 +260,7 @@ export default function LandingPage() {
                 </div>
                 <div className="ba-ft"><i className="fas fa-camera" style={{ marginRight: 6 }}></i> Actual project &middot; [City] commercial site</div>
               </div>
-              <div className="sav-b"><strong>Save $127K</strong><span>vs. full replacement</span></div>
+              <div className="sav-b float-el"><strong>Save $127K</strong><span>vs. full replacement</span></div>
             </div>
           </div>
         </div>
@@ -265,7 +272,7 @@ export default function LandingPage() {
           <h2 className="h2 rv d1">Why Building Owners Choose <em>Coating</em> Over Replacement</h2>
           <div className="bg">
             {benefits.map((b, i) => (
-              <div key={i} className={`bc rv${i > 0 ? " d" + i : ""}`}>
+              <div key={i} className={`bc zoom-in${i > 0 ? " d" + (i % 5 || 1) : ""}`}>
                 <div className="b-ic-wrap">
                   <div className="b-ic-ring"></div>
                   <div className="b-ic"><i className={`fas ${b.icon}`}></i></div>
@@ -285,25 +292,13 @@ export default function LandingPage() {
 
       <section className="proc-s">
         <div className="wrap">
-          <div className="tag rv"><span>Process</span></div>
-          <h2 className="h2 rv d1">From Leaky Roof to <em>Lasting Protection</em></h2>
-          <p className="body-t rv d2">1,200+ roofs coated. Here's exactly what happens — no surprises, no hidden steps.</p>
+          <div className="proc-head">
+            <div className="tag rv"><span>Process</span></div>
+            <h2 className="h2 rv d1">From Leaky Roof to <em>Lasting Protection</em></h2>
+            <p className="body-t rv d2">1,200+ roofs coated. Here's exactly what happens — no surprises, no hidden steps.</p>
+          </div>
           <div className="proc-lay">
-            <div className="proc-rail">
-              {process.map((p, i) => (
-                <div key={i} className={`ps rv${i > 0 ? " d" + i : ""}`}>
-                  <div className="ps-n">{p.n}</div>
-                  <div>
-                    <div className="ps-h">
-                      <h3 className="ps-t">{p.t}</h3>
-                      <span className="ps-time"><i className="far fa-clock" style={{ marginRight: 4 }}></i> {p.time}</span>
-                    </div>
-                    <p className="ps-d">{p.d}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="proc-vis rv d2">
+            <div className="proc-vis rv">
               <div className="proc-carousel">
                 <div className="pc-track" style={{ transform: `translateX(-${currentVideo * 100}%)` }}>
                   {videos.map((v, i) => (
@@ -333,11 +328,26 @@ export default function LandingPage() {
                   ))}
                 </div>
               </div>
-              <div className="proc-vis-cap">Field work &middot; Step 03</div>
+              <div className="proc-vis-cap"><i className="fas fa-play-circle" style={{ color: "var(--amber)", marginRight: 6 }}></i>Watch real project footage</div>
             </div>
+            <ol className="proc-steps">
+              {process.map((p, i) => (
+                <li key={i} className={`psc rv${i > 0 ? " d" + i : ""}`}>
+                  <div className="psc-n">{p.n}</div>
+                  <div className="psc-body">
+                    <div className="psc-head">
+                      <h3>{p.t}</h3>
+                      <span className="psc-time">{p.time}</span>
+                    </div>
+                    <p>{p.d}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
-          <div className="rv d4" style={{ marginTop: 40, paddingLeft: 90 }}>
-            <a href="#hero-form" className="btn-pill btn-pill-red" onClick={smoothScroll}>Book Free Inspection</a>
+          <div className="proc-cta rv d2">
+            <a href="#hero-form" className="btn-pill btn-pill-red" onClick={smoothScroll}>Book Free Assessment</a>
+            <span className="proc-cta-note">Written report within 24 hrs &middot; No obligation</span>
           </div>
         </div>
       </section>
@@ -346,11 +356,11 @@ export default function LandingPage() {
         <div className="wrap">
           <div className="tag tag-light rv"><span>Case Study</span></div>
           <h2 className="h2 h2-w rv d1">How One Property Manager Saved <em>$127,000</em></h2>
-          <div className="cs-grid rv d2">
-            <div className="cs-i"><div className="cs-lb">Building</div><div className="cs-v">45,000 ft²</div><div className="cs-sub">Commercial office</div></div>
-            <div className="cs-i"><div className="cs-lb">Replacement Quote</div><div className="cs-v">$189,000</div><div className="cs-sub">Full tear-off</div></div>
-            <div className="cs-i"><div className="cs-lb">Coating Cost</div><div className="cs-v">$62,000</div><div className="cs-sub">Silicone system</div></div>
-            <div className="cs-i"><div className="cs-lb">Total Saved</div><div className="cs-v hl">$127,000</div><div className="cs-sub">Zero leaks since</div></div>
+          <div className="cs-grid">
+            <div className="cs-i zoom-in"><div className="cs-lb">Building</div><div className="cs-v">45,000 ft²</div><div className="cs-sub">Commercial office</div></div>
+            <div className="cs-i zoom-in d1"><div className="cs-lb">Replacement Quote</div><div className="cs-v">$189,000</div><div className="cs-sub">Full tear-off</div></div>
+            <div className="cs-i zoom-in d2"><div className="cs-lb">Coating Cost</div><div className="cs-v">$62,000</div><div className="cs-sub">Silicone system</div></div>
+            <div className="cs-i zoom-in d3"><div className="cs-lb">Total Saved</div><div className="cs-v hl">$127,000</div><div className="cs-sub">Zero leaks since</div></div>
           </div>
           <div className="row rv d3">
             <div className="col-lg-6">
@@ -394,33 +404,6 @@ export default function LandingPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="test-s">
-        <div className="wrap">
-          <div className="tag rv"><span>Testimonials</span></div>
-          <h2 className="h2 rv d1">What Our Clients Say</h2>
-          <div className="test-g">
-            {testimonials.map((t, i) => (
-              <div key={i} className={`tc rv${i > 0 ? " d" + i : ""}`}>
-                <div className="tc-stars">
-                  <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i>
-                </div>
-                <p className="tc-txt">{t.txt}</p>
-                <div className="tc-ft">
-                  <div className="tc-person">
-                    <div className={`avatar ${t.av}`}>{t.initials}</div>
-                    <div>
-                      <div className="tc-nm">{t.nm}</div>
-                      <div className="tc-rl">{t.rl}</div>
-                    </div>
-                  </div>
-                  <span className="tc-tag">{t.tag}</span>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -598,7 +581,7 @@ export default function LandingPage() {
 
       <div className={`mob-s${showMobile ? " show" : ""}`} id="mobS">
         <a href="#hero-form" className="mob-cta" onClick={smoothScroll}>
-          Get My Online Estimate <i className="fas fa-arrow-right" style={{ marginLeft: 6, fontSize: 11 }}></i>
+          Get My Free Assessment <i className="fas fa-arrow-right" style={{ marginLeft: 6, fontSize: 11 }}></i>
         </a>
       </div>
     </>
