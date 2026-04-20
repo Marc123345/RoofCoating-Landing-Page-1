@@ -338,7 +338,6 @@ export default function LandingPage() {
           </div>
           <div className="proc-cta rv d2">
             <a href="#hero-form" className="btn-pill btn-pill-red" onClick={smoothScroll}>Book Free Assessment</a>
-            <span className="proc-cta-note">Written report within 24 hrs &middot; No obligation</span>
           </div>
         </div>
       </section>
@@ -567,11 +566,6 @@ export default function LandingPage() {
         </div>
       </footer>
 
-      <div className={`mob-s${showMobile ? " show" : ""}`} id="mobS">
-        <a href="#hero-form" className="mob-cta" onClick={smoothScroll}>
-          Get My Free Assessment <i className="fas fa-arrow-right" style={{ marginLeft: 6, fontSize: 11 }}></i>
-        </a>
-      </div>
     </>
   );
 }
