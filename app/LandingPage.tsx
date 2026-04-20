@@ -230,6 +230,18 @@ export default function LandingPage() {
                 <li><i className="fas fa-check"></i> Extend roof life 10–20 years, manufacturer-backed</li>
                 <li><i className="fas fa-check"></i> Cut cooling costs up to 20% &middot; 1–3 day install</li>
               </ul>
+              <div className="hero-trust rv d4">
+                <div className="ht-stars" aria-hidden="true">
+                  <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i>
+                </div>
+                <div className="ht-facts">
+                  <span><strong>4.9 / 5</strong> on Google</span>
+                  <span className="ht-sep" />
+                  <span><strong>1,200+</strong> Roofs Coated</span>
+                  <span className="ht-sep" />
+                  <span><strong>20-yr</strong> Warranty</span>
+                </div>
+              </div>
             </div>
             <div className="col-lg-6">
               <div className="hf-wrap">
