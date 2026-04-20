@@ -42,6 +42,22 @@ export default function LandingPage() {
   };
 
   useEffect(() => {
+    const jf = document.createElement("script");
+    jf.src = "https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js";
+    jf.async = true;
+    jf.onload = () => {
+      const w = window as unknown as { jotformEmbedHandler?: (sel: string, base: string) => void };
+      if (w.jotformEmbedHandler) {
+        w.jotformEmbedHandler("iframe[id='JotFormIFrame-261093407189057']", "https://form.jotform.com/");
+      }
+    };
+    document.body.appendChild(jf);
+    return () => {
+      if (jf.parentNode) jf.parentNode.removeChild(jf);
+    };
+  }, []);
+
+  useEffect(() => {
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((x) => {
@@ -149,6 +165,11 @@ export default function LandingPage() {
             <LogoMark size={34} />
             <span className="nav-br-txt">Roof Coat</span>
           </a>
+          <div className="nav-act">
+            <a href="#hero-form" className="btn-pill btn-pill-red nav-pill" onClick={smoothScroll}>
+              <span>Book Free Assessment</span>
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -165,11 +186,7 @@ export default function LandingPage() {
         </div>
         <div className="wrap" style={{ width: "100%" }}>
           <div className="row align-items-center">
-            <div className="col-lg-7">
-              <div className="hero-badge rv">
-                <div className="dot"></div>
-                <span>Trusted by 1,200+ Commercial Owners Since 2011</span>
-              </div>
+            <div className="col-lg-6">
               <h1 className="rv d1 hero-h1-stat">
                 Extend Your Roof's Life by <span className="hero-stat-big">10–20 Years</span>
                 <br />
@@ -183,15 +200,8 @@ export default function LandingPage() {
                 <li><i className="fas fa-check"></i> Extend roof life 10–20 years, manufacturer-backed</li>
                 <li><i className="fas fa-check"></i> Cut cooling costs up to 20% &middot; 1–3 day install</li>
               </ul>
-              <div className="hero-proof rv d4">
-                <div className="hero-stars" aria-label="4.9 out of 5 stars">
-                  <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i>
-                </div>
-                <span className="hero-proof-txt"><strong>4.9 / 5</strong> &middot; 127 Google Reviews &middot; <strong>1,200+ roofs coated</strong></span>
-              </div>
-
             </div>
-            <div className="col-lg-5">
+            <div className="col-lg-6">
               <div className="hf-wrap">
                 <div className="hero-arrow rv" aria-hidden="true">
                   <span className="hero-arrow-txt">Start here</span>
@@ -200,26 +210,15 @@ export default function LandingPage() {
                     <path d="M 82 64 L 96 82 L 108 60" stroke="var(--amber)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                   </svg>
                 </div>
-                <div className="hf slide-right" id="hero-form">
-                  <div className="hf-eyebrow"><span className="hf-pulse"></span>Free Inspection &middot; 2-Hr Response</div>
-                  <h3>Free Roof Coating Assessment</h3>
-                  <p className="fs">Takes 30 seconds. Written report with coating options + fixed-price quote within 24 hrs.</p>
-                  <div className="fg"><label className="fl">Full Name</label><input type="text" className="fi" placeholder="John Smith" required /></div>
-                  <div className="fg"><label className="fl">Email</label><input type="email" className="fi" placeholder="you@example.com" required /></div>
-                  <div className="fg"><label className="fl">Full Address</label><input type="text" className="fi" placeholder="1234 Main Street" required /></div>
-                  <div className="fg-row">
-                    <div className="fg"><label className="fl">City</label><input type="text" className="fi" placeholder="City" required /></div>
-                    <div className="fg"><label className="fl">Zip Code</label><input type="text" className="fi" placeholder="00000" inputMode="numeric" required /></div>
-                  </div>
-                  <div className="fg"><label className="fl">Square Footage / Notes <span className="fl-opt">(optional)</span></label><textarea className="fi fi-area" placeholder="Approx sq ft, roof age, known issues — if you have them" rows={3}></textarea></div>
-                  <button className="btn-p btn-full" type="submit">
-                    Get My Free Assessment <i className="fas fa-arrow-right" style={{ marginLeft: 8, fontSize: 12 }}></i>
-                  </button>
-                  <div className="hf-proof">
-                    <div className="hf-stars"><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><strong>4.9</strong></div>
-                    <span className="hf-proof-txt">Trusted by 1,200+ building owners</span>
-                  </div>
-                  <p className="fn"><i className="fas fa-lock" style={{ marginRight: 6, fontSize: 10 }}></i> Your info stays private &middot; No spam, no pressure</p>
+                <div className="hf-bare slide-right" id="hero-form">
+                  <iframe
+                    id="JotFormIFrame-261093407189057"
+                    title="Free Roof Coating Assessment Form"
+                    allow="geolocation; microphone; camera; fullscreen"
+                    src="https://form.jotform.com/261093407189057"
+                    className="hf-iframe"
+                    scrolling="no"
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -240,31 +239,13 @@ export default function LandingPage() {
             </div>
             <div className="prob-vis slide-right">
               <div className="ba">
-                <div className="ba-g">
-                  <div
-                    className="ba-b"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(rgba(27,58,92,.5),rgba(27,58,92,.78)),url('https://ik.imagekit.io/qcvroy8xpd/8.png')",
-                      backgroundSize: "200% 100%",
-                      backgroundPosition: "left center",
-                    }}
-                  >
+                <div className="ba-full" style={{ backgroundImage: "url('https://ik.imagekit.io/qcvroy8xpd/580c524e-ceaa-4322-801d-0e8c216bebdd.png?updatedAt=1776666137369')" }}>
+                  <div className="ba-card ba-card-b">
                     <div className="ba-lb">Before</div>
-                    <div className="ba-ic"><i className="fas fa-exclamation-triangle"></i></div>
                     <div className="ba-d">Leaks &middot; Damage &middot; Aging</div>
                   </div>
-                  <div
-                    className="ba-a"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(rgba(245,243,239,.55),rgba(245,243,239,.8)),url('https://ik.imagekit.io/qcvroy8xpd/8.png')",
-                      backgroundSize: "200% 100%",
-                      backgroundPosition: "right center",
-                    }}
-                  >
+                  <div className="ba-card ba-card-a">
                     <div className="ba-lb">After</div>
-                    <div className="ba-ic"><i className="fas fa-check-circle"></i></div>
                     <div className="ba-d">Sealed &middot; Protected &middot; Warrantied</div>
                   </div>
                 </div>
@@ -382,8 +363,8 @@ export default function LandingPage() {
               <div className="cq">
                 <p>"We were ready to write a check for $189K. They saved us six figures and the roof has been bone dry since. I wish I'd called them first."</p>
                 <cite>
-                  <strong><i className="fas fa-user-tie" style={{ marginRight: 6, fontSize: 11, color: "var(--amber)" }}></i> Property Manager</strong>
-                  <span>[City] Commercial Office Park</span>
+                  <strong><i className="fas fa-user-tie" style={{ marginRight: 6, fontSize: 11, color: "var(--amber)" }}></i> Michael Hartman</strong>
+                  <span>Property Manager &middot; [City] Commercial Office Park</span>
                 </cite>
               </div>
             </div>
