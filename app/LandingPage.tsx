@@ -1,11 +1,35 @@
 "use client";
 
-import { useEffect, useState, MouseEvent } from "react";
+import { useEffect, useState, useRef, MouseEvent } from "react";
 
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
   const [showMobile, setShowMobile] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [currentVideo, setCurrentVideo] = useState(0);
+  const [playingVideo, setPlayingVideo] = useState<number | null>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  const videos = [
+    { src: "https://ik.imagekit.io/qcvroy8xpd/Video.mp4", label: "Coating Application" },
+    { src: "https://ik.imagekit.io/qcvroy8xpd/Video%202.mp4", label: "Finished Roof" },
+  ];
+
+  const playVid = (idx: number) => {
+    videoRefs.current.forEach((v, i) => { if (i !== idx && v) { v.pause(); v.currentTime = 0; } });
+    const v = videoRefs.current[idx];
+    if (v) { v.play(); setPlayingVideo(idx); }
+  };
+  const switchVid = (idx: number) => {
+    if (playingVideo !== null && videoRefs.current[playingVideo]) {
+      videoRefs.current[playingVideo]!.pause();
+      videoRefs.current[playingVideo]!.currentTime = 0;
+    }
+    setPlayingVideo(null);
+    setCurrentVideo(idx);
+  };
+  const prevVid = () => switchVid(currentVideo === 0 ? videos.length - 1 : currentVideo - 1);
+  const nextVid = () => switchVid((currentVideo + 1) % videos.length);
 
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -149,16 +173,16 @@ export default function LandingPage() {
                 <div><div className="stat-n">20 yr</div><div className="stat-l">Max Warranty</div></div>
               </div>
 
-              <div className="hero-arrow rv d4" aria-hidden="true">
-                <span className="hero-arrow-txt">Fill out the form</span>
-                <svg className="hero-arrow-svg" viewBox="0 0 140 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M 8 18 C 35 5, 80 8, 115 42" stroke="var(--amber)" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="0" />
-                  <path d="M 105 30 L 117 44 L 100 48" stroke="var(--amber)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                </svg>
-              </div>
             </div>
             <div className="col-lg-5">
               <div className="hf-wrap">
+                <div className="hero-arrow rv" aria-hidden="true">
+                  <span className="hero-arrow-txt">Fill out the form</span>
+                  <svg className="hero-arrow-svg" viewBox="0 0 120 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 10 10 C 25 50, 55 55, 95 55" stroke="var(--amber)" strokeWidth="2.5" strokeLinecap="round" />
+                    <path d="M 85 45 L 98 56 L 86 62" stroke="var(--amber)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                  </svg>
+                </div>
                 <div className="hf rv d2" id="hero-form">
                   <div className="hf-eyebrow"><span className="hf-pulse"></span>Free Inspection &middot; 2-Hr Response</div>
                   <h3>Get Your Free Online Estimate</h3>
@@ -280,9 +304,36 @@ export default function LandingPage() {
               ))}
             </div>
             <div className="proc-vis rv d2">
-              <div className="proc-vis-glow"></div>
-              <img src="https://ik.imagekit.io/qcvroy8xpd/generated-image%201.png?updatedAt=1776666090382" alt="Technician applying silicone roof coating" className="proc-vis-img" />
-              <div className="proc-vis-cap">Certified crew &middot; Step 03</div>
+              <div className="proc-carousel">
+                <div className="pc-track" style={{ transform: `translateX(-${currentVideo * 100}%)` }}>
+                  {videos.map((v, i) => (
+                    <div key={i} className="pc-slide">
+                      <video
+                        ref={(el) => { videoRefs.current[i] = el; }}
+                        src={v.src}
+                        playsInline
+                        preload="metadata"
+                        controls={playingVideo === i}
+                        className="pc-video"
+                        onEnded={() => setPlayingVideo(null)}
+                      />
+                      {playingVideo !== i && (
+                        <button className="pc-play" onClick={() => playVid(i)} aria-label={`Play ${v.label}`} type="button">
+                          <i className="fas fa-play"></i>
+                        </button>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                <button className="pc-nav pc-prev" onClick={prevVid} aria-label="Previous video" type="button"><i className="fas fa-chevron-left"></i></button>
+                <button className="pc-nav pc-next" onClick={nextVid} aria-label="Next video" type="button"><i className="fas fa-chevron-right"></i></button>
+                <div className="pc-dots">
+                  {videos.map((_, i) => (
+                    <button key={i} className={`pc-dot${currentVideo === i ? " active" : ""}`} onClick={() => switchVid(i)} aria-label={`Go to video ${i + 1}`} type="button" />
+                  ))}
+                </div>
+              </div>
+              <div className="proc-vis-cap">Field work &middot; Step 03</div>
             </div>
           </div>
           <div className="rv d4" style={{ marginTop: 40, paddingLeft: 90 }}>
