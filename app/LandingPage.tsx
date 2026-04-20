@@ -202,33 +202,9 @@ export default function LandingPage() {
             </div>
             <div className="prob-vis rv d2">
               <div className="ba">
-                <div className="ba-g">
-                  <div
-                    className="ba-b"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(rgba(27,58,92,.45),rgba(27,58,92,.75)),url('https://ik.imagekit.io/qcvroy8xpd/photo-1674485169641-bcb2bf6f1df9%20(1).jpeg?updatedAt=1776000815056')",
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                  >
-                    <div className="ba-lb">Before</div>
-                    <div className="ba-ic"><i className="fas fa-exclamation-triangle"></i></div>
-                    <div className="ba-d">Leaks &middot; Damage &middot; Aging</div>
-                  </div>
-                  <div
-                    className="ba-a"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(rgba(245,243,239,.55),rgba(245,243,239,.8)),url('https://ik.imagekit.io/qcvroy8xpd/c2aac4e3-f2b4-472c-aaf9-c06508fad1ff.jpeg?updatedAt=1776009410839')",
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                  >
-                    <div className="ba-lb">After</div>
-                    <div className="ba-ic"><i className="fas fa-check-circle"></i></div>
-                    <div className="ba-d">Sealed &middot; Protected &middot; Warrantied</div>
-                  </div>
+                <div className="ba-single" style={{ backgroundImage: "url('https://ik.imagekit.io/qcvroy8xpd/8.png')" }}>
+                  <span className="ba-lbl ba-lbl-b">Before</span>
+                  <span className="ba-lbl ba-lbl-a">After</span>
                 </div>
                 <div className="ba-ft"><i className="fas fa-camera" style={{ marginRight: 6 }}></i> Actual project &middot; [City] commercial site</div>
               </div>
@@ -381,42 +357,31 @@ export default function LandingPage() {
           </div>
 
           <div className="work-grid">
-            <div className="work-card rv">
-              <div className="work-img" style={{ backgroundImage: "url('https://ik.imagekit.io/qcvroy8xpd/Asyrc.png?updatedAt=1776008954670')" }}>
-                <span className="work-tag">Warehouse</span>
+            {[
+              { id: "21", tag: "Warehouse", title: "Distribution Center", sqft: "45,000 ft²", days: "4 days", coat: "Silicone" },
+              { id: "14", tag: "Office Park", title: "Corporate Campus", sqft: "28,000 ft²", days: "3 days", coat: "Acrylic" },
+              { id: "11", tag: "Retail", title: "Strip Mall Restoration", sqft: "15,000 ft²", days: "2 days", coat: "Silicone" },
+              { id: "19", tag: "Industrial", title: "Manufacturing Plant", sqft: "62,000 ft²", days: "5 days", coat: "Hybrid" },
+              { id: "32", tag: "HOA", title: "Condo Community", sqft: "38,000 ft²", days: "4 days", coat: "Silicone" },
+              { id: "12", tag: "Healthcare", title: "Medical Office", sqft: "22,000 ft²", days: "2 days", coat: "Acrylic" },
+              { id: "10", tag: "Warehouse", title: "Logistics Hub", sqft: "85,000 ft²", days: "6 days", coat: "Silicone" },
+              { id: "9", tag: "School", title: "K-12 Campus", sqft: "54,000 ft²", days: "5 days", coat: "Acrylic" },
+              { id: "27", tag: "Office", title: "Mid-Rise Office", sqft: "32,000 ft²", days: "3 days", coat: "Silicone" },
+              { id: "24", tag: "Retail", title: "Shopping Plaza", sqft: "40,000 ft²", days: "4 days", coat: "Hybrid" },
+              { id: "26", tag: "Industrial", title: "Auto Facility", sqft: "48,000 ft²", days: "4 days", coat: "Silicone" },
+              { id: "29", tag: "Warehouse", title: "Cold Storage", sqft: "70,000 ft²", days: "5 days", coat: "Silicone" },
+            ].map((w, i) => (
+              <div key={w.id} className={`work-card rv${i > 0 ? " d" + (i % 5 || 1) : ""}`}>
+                <div className="work-img" style={{ backgroundImage: `url('https://ik.imagekit.io/qcvroy8xpd/${w.id}.png')` }}>
+                  <span className="work-tag">{w.tag}</span>
+                  <span className="work-ba">Before / After</span>
+                </div>
+                <div className="work-meta">
+                  <h3>{w.title}</h3>
+                  <div className="work-stats"><span>{w.sqft}</span><span>{w.days}</span><span>{w.coat}</span></div>
+                </div>
               </div>
-              <div className="work-meta">
-                <h3>Distribution Center</h3>
-                <div className="work-stats"><span>45,000 ft²</span><span>4 days</span><span>Silicone</span></div>
-              </div>
-            </div>
-            <div className="work-card rv d1">
-              <div className="work-img" style={{ backgroundImage: "url('https://ik.imagekit.io/qcvroy8xpd/photo-1674485169641-bcb2bf6f1df9%20(1).jpeg?updatedAt=1776000815056')" }}>
-                <span className="work-tag">Office Park</span>
-              </div>
-              <div className="work-meta">
-                <h3>Corporate Campus</h3>
-                <div className="work-stats"><span>28,000 ft²</span><span>3 days</span><span>Acrylic</span></div>
-              </div>
-            </div>
-            <div className="work-card rv d2">
-              <div className="work-img" style={{ backgroundImage: "url('https://ik.imagekit.io/qcvroy8xpd/c2aac4e3-f2b4-472c-aaf9-c06508fad1ff.jpeg?updatedAt=1776009410839')" }}>
-                <span className="work-tag">Retail</span>
-              </div>
-              <div className="work-meta">
-                <h3>Strip Mall Restoration</h3>
-                <div className="work-stats"><span>15,000 ft²</span><span>2 days</span><span>Silicone</span></div>
-              </div>
-            </div>
-            <div className="work-card rv d3">
-              <div className="work-img" style={{ backgroundImage: "url('https://ik.imagekit.io/qcvroy8xpd/580c524e-ceaa-4322-801d-0e8c216bebdd.png')" }}>
-                <span className="work-tag">Industrial</span>
-              </div>
-              <div className="work-meta">
-                <h3>Manufacturing Plant</h3>
-                <div className="work-stats"><span>62,000 ft²</span><span>5 days</span><span>Hybrid</span></div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
