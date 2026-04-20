@@ -77,7 +77,7 @@ export default function LandingPage() {
   ];
 
   const benefits = [
-    { icon: "fa-dollar-sign", title: "Save 50–70% vs. Replacement", body: "Average replacement: $8–$14/sq ft. Coating: $3–$5. On a 20,000 sq ft roof, that's $100K+ saved." },
+    { icon: "fa-dollar-sign", title: "Save up to 75% vs. Replacement", body: "Average replacement: $8–$14/sq ft. Coating: $3–$5. On a 20,000 sq ft roof, that's $100K+ saved." },
     { icon: "fa-volume-mute", title: "Zero Business Disruption", body: "No tear-off. No noise. No closed parking. Tenants won't know we're there." },
     { icon: "fa-shield-alt", title: "15–20 Year Manufacturer Warranty", body: "Backed by the manufacturer, not just our word. Transferable for property sales." },
     { icon: "fa-thermometer-quarter", title: "Energy Cost Reduction", body: "Reflective coatings cut rooftop temps by up to 60°F. Cooling costs drop 15–25%." },
@@ -116,12 +116,8 @@ export default function LandingPage() {
             <span className="nav-br-txt">Roof Coat</span>
           </a>
           <div className="nav-act">
-            <a href="tel:5551234567" className="nav-ph">
-              <i className="fas fa-phone-alt"></i> (555) 123-4567
-            </a>
-            <a href="tel:5551234567" className="btn-pill btn-pill-red nav-pill">
-              <i className="fas fa-phone-alt"></i>
-              <span>Call Now</span>
+            <a href="#hero-form" className="btn-pill btn-pill-red nav-pill" onClick={smoothScroll}>
+              <span>Get Free Quote</span>
             </a>
           </div>
         </div>
@@ -150,32 +146,37 @@ export default function LandingPage() {
                 <span className="ul">They need restoration.</span>
               </h1>
               <p className="hero-sub rv d2">
-                Silicone coating restores flat, metal, and modified bitumen roofs in 1–3 days — saving building owners 50–70% vs. replacement, backed by manufacturer warranties up to 20 years.
+                Silicone coating restores flat, metal, and modified bitumen roofs in 1–3 days — saving building owners up to 75% vs. replacement, backed by manufacturer warranties up to 20 years.
               </p>
               <div className="hero-stats rv d3">
                 <div><div className="stat-n">1,200+</div><div className="stat-l">Roofs Coated</div></div>
-                <div><div className="stat-n">50–70%</div><div className="stat-l">Avg. Savings</div></div>
+                <div><div className="stat-n">Up to 75%</div><div className="stat-l">Avg. Savings</div></div>
                 <div><div className="stat-n">20 yr</div><div className="stat-l">Max Warranty</div></div>
               </div>
 
               <div className="hero-cta-row rv d4">
-                <a href="tel:5551234567" className="btn-pill btn-pill-red">
-                  <i className="fas fa-phone-alt"></i>
-                  <span>Call (555) 123-4567</span>
+                <a href="#hero-form" className="btn-pill btn-pill-red" onClick={smoothScroll}>
+                  <span>Get My Free Quote</span>
                 </a>
               </div>
-              <p className="hero-fine rv d5">Speak to a specialist. Mon–Sat 7am–6pm.</p>
+              <p className="hero-fine rv d5">Written report + fixed-price quote within 24 hrs.</p>
             </div>
             <div className="col-lg-5">
               <div className="hf-wrap">
                 <div className="hf rv d2" id="hero-form">
                   <div className="hf-eyebrow"><span className="hf-pulse"></span>Free Inspection &middot; 2-Hr Response</div>
-                  <h3>Get Your Free Roof Report</h3>
+                  <h3>Get Your Free Online Estimate</h3>
                   <p className="fs">Takes 30 seconds. Written report with coating options + fixed-price quote within 24 hrs.</p>
-                  <div className="fg"><label className="fl">Name</label><input type="text" className="fi" placeholder="John Smith" /></div>
-                  <div className="fg"><label className="fl">Phone</label><input type="tel" className="fi" placeholder="(555) 000-0000" /></div>
+                  <div className="fg"><label className="fl">Full Name</label><input type="text" className="fi" placeholder="John Smith" required /></div>
+                  <div className="fg"><label className="fl">Email</label><input type="email" className="fi" placeholder="you@example.com" required /></div>
+                  <div className="fg"><label className="fl">Full Address</label><input type="text" className="fi" placeholder="1234 Main Street" required /></div>
+                  <div className="fg-row">
+                    <div className="fg"><label className="fl">City</label><input type="text" className="fi" placeholder="City" required /></div>
+                    <div className="fg"><label className="fl">Zip Code</label><input type="text" className="fi" placeholder="00000" inputMode="numeric" required /></div>
+                  </div>
+                  <div className="fg"><label className="fl">Square Footage / Notes <span className="fl-opt">(optional)</span></label><textarea className="fi fi-area" placeholder="Approx sq ft, roof age, known issues — if you have them" rows={3}></textarea></div>
                   <button className="btn-p btn-full" type="submit">
-                    Get My Free Roof Report <i className="fas fa-arrow-right" style={{ marginLeft: 8, fontSize: 12 }}></i>
+                    Get My Online Estimate <i className="fas fa-arrow-right" style={{ marginLeft: 8, fontSize: 12 }}></i>
                   </button>
                   <div className="hf-proof">
                     <div className="hf-stars"><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><strong>4.9</strong></div>
@@ -202,9 +203,33 @@ export default function LandingPage() {
             </div>
             <div className="prob-vis rv d2">
               <div className="ba">
-                <div className="ba-single" style={{ backgroundImage: "url('https://ik.imagekit.io/qcvroy8xpd/8.png')" }}>
-                  <span className="ba-lbl ba-lbl-b">Before</span>
-                  <span className="ba-lbl ba-lbl-a">After</span>
+                <div className="ba-g">
+                  <div
+                    className="ba-b"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(rgba(27,58,92,.5),rgba(27,58,92,.78)),url('https://ik.imagekit.io/qcvroy8xpd/8.png')",
+                      backgroundSize: "200% 100%",
+                      backgroundPosition: "left center",
+                    }}
+                  >
+                    <div className="ba-lb">Before</div>
+                    <div className="ba-ic"><i className="fas fa-exclamation-triangle"></i></div>
+                    <div className="ba-d">Leaks &middot; Damage &middot; Aging</div>
+                  </div>
+                  <div
+                    className="ba-a"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(rgba(245,243,239,.55),rgba(245,243,239,.8)),url('https://ik.imagekit.io/qcvroy8xpd/8.png')",
+                      backgroundSize: "200% 100%",
+                      backgroundPosition: "right center",
+                    }}
+                  >
+                    <div className="ba-lb">After</div>
+                    <div className="ba-ic"><i className="fas fa-check-circle"></i></div>
+                    <div className="ba-d">Sealed &middot; Protected &middot; Warrantied</div>
+                  </div>
                 </div>
                 <div className="ba-ft"><i className="fas fa-camera" style={{ marginRight: 6 }}></i> Actual project &middot; [City] commercial site</div>
               </div>
@@ -243,19 +268,26 @@ export default function LandingPage() {
           <div className="tag rv"><span>Process</span></div>
           <h2 className="h2 rv d1">From Leaky Roof to <em>Lasting Protection</em></h2>
           <p className="body-t rv d2">1,200+ roofs coated. Here's exactly what happens — no surprises, no hidden steps.</p>
-          <div className="proc-rail">
-            {process.map((p, i) => (
-              <div key={i} className={`ps rv${i > 0 ? " d" + i : ""}`}>
-                <div className="ps-n">{p.n}</div>
-                <div>
-                  <div className="ps-h">
-                    <h3 className="ps-t">{p.t}</h3>
-                    <span className="ps-time"><i className="far fa-clock" style={{ marginRight: 4 }}></i> {p.time}</span>
+          <div className="proc-lay">
+            <div className="proc-rail">
+              {process.map((p, i) => (
+                <div key={i} className={`ps rv${i > 0 ? " d" + i : ""}`}>
+                  <div className="ps-n">{p.n}</div>
+                  <div>
+                    <div className="ps-h">
+                      <h3 className="ps-t">{p.t}</h3>
+                      <span className="ps-time"><i className="far fa-clock" style={{ marginRight: 4 }}></i> {p.time}</span>
+                    </div>
+                    <p className="ps-d">{p.d}</p>
                   </div>
-                  <p className="ps-d">{p.d}</p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div className="proc-vis rv d2">
+              <div className="proc-vis-glow"></div>
+              <img src="https://ik.imagekit.io/qcvroy8xpd/generated-image%201.png?updatedAt=1776666090382" alt="Technician applying silicone roof coating" className="proc-vis-img" />
+              <div className="proc-vis-cap">Certified crew &middot; Step 03</div>
+            </div>
           </div>
           <div className="rv d4" style={{ marginTop: 40, paddingLeft: 90 }}>
             <a href="#hero-form" className="btn-pill btn-pill-red" onClick={smoothScroll}>Book Free Inspection</a>
@@ -357,28 +389,10 @@ export default function LandingPage() {
           </div>
 
           <div className="work-grid">
-            {[
-              { id: "21", tag: "Warehouse", title: "Distribution Center", sqft: "45,000 ft²", days: "4 days", coat: "Silicone" },
-              { id: "14", tag: "Office Park", title: "Corporate Campus", sqft: "28,000 ft²", days: "3 days", coat: "Acrylic" },
-              { id: "11", tag: "Retail", title: "Strip Mall Restoration", sqft: "15,000 ft²", days: "2 days", coat: "Silicone" },
-              { id: "19", tag: "Industrial", title: "Manufacturing Plant", sqft: "62,000 ft²", days: "5 days", coat: "Hybrid" },
-              { id: "32", tag: "HOA", title: "Condo Community", sqft: "38,000 ft²", days: "4 days", coat: "Silicone" },
-              { id: "12", tag: "Healthcare", title: "Medical Office", sqft: "22,000 ft²", days: "2 days", coat: "Acrylic" },
-              { id: "10", tag: "Warehouse", title: "Logistics Hub", sqft: "85,000 ft²", days: "6 days", coat: "Silicone" },
-              { id: "9", tag: "School", title: "K-12 Campus", sqft: "54,000 ft²", days: "5 days", coat: "Acrylic" },
-              { id: "27", tag: "Office", title: "Mid-Rise Office", sqft: "32,000 ft²", days: "3 days", coat: "Silicone" },
-              { id: "24", tag: "Retail", title: "Shopping Plaza", sqft: "40,000 ft²", days: "4 days", coat: "Hybrid" },
-              { id: "26", tag: "Industrial", title: "Auto Facility", sqft: "48,000 ft²", days: "4 days", coat: "Silicone" },
-              { id: "29", tag: "Warehouse", title: "Cold Storage", sqft: "70,000 ft²", days: "5 days", coat: "Silicone" },
-            ].map((w, i) => (
-              <div key={w.id} className={`work-card rv${i > 0 ? " d" + (i % 5 || 1) : ""}`}>
-                <div className="work-img" style={{ backgroundImage: `url('https://ik.imagekit.io/qcvroy8xpd/${w.id}.png')` }}>
-                  <span className="work-tag">{w.tag}</span>
+            {["21", "14", "11", "19", "32", "12", "10", "9", "27", "24", "26", "29"].map((id, i) => (
+              <div key={id} className={`work-card rv${i > 0 ? " d" + (i % 5 || 1) : ""}`}>
+                <div className="work-img" style={{ backgroundImage: `url('https://ik.imagekit.io/qcvroy8xpd/${id}.png')` }}>
                   <span className="work-ba">Before / After</span>
-                </div>
-                <div className="work-meta">
-                  <h3>{w.title}</h3>
-                  <div className="work-stats"><span>{w.sqft}</span><span>{w.days}</span><span>{w.coat}</span></div>
                 </div>
               </div>
             ))}
@@ -393,7 +407,7 @@ export default function LandingPage() {
               <div className="tag rv"><span>FAQ</span></div>
               <h2 className="h2 rv d1">Common Questions</h2>
               <p className="rv d2" style={{ fontSize: 15, lineHeight: 1.72, color: "var(--ink-soft)", marginBottom: 24 }}>
-                Can't find your answer? Call <strong>(555) 123-4567</strong> or book your free inspection.
+                Can't find your answer? Send us the details and we'll write back within 24 hours.
               </p>
               <a href="#hero-form" className="btn-pill btn-pill-red rv d3" onClick={smoothScroll}>Book Free Inspection</a>
             </div>
@@ -470,16 +484,6 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="ind-foot rv">
-            <div>
-              <div className="ind-foot-lb">Don't see your building type?</div>
-              <div className="ind-foot-h">We've probably done it. Let's talk.</div>
-            </div>
-            <div className="ind-foot-act">
-              <a href="#hero-form" className="btn-pill btn-pill-red" onClick={smoothScroll}>Get a Free Inspection</a>
-              <a href="tel:5551234567" className="btn-pill btn-pill-white"><i className="fas fa-phone-alt"></i><span>(555) 123-4567</span></a>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -494,8 +498,7 @@ export default function LandingPage() {
                 </div>
                 <p className="ft-blurb">We restore commercial roofs across [State] for building owners, property managers, and facilities teams. Manufacturer-backed silicone and acrylic systems. No tear-offs, no tenant disruption.</p>
                 <div className="ft-contact">
-                  <a href="tel:5551234567" className="ft-c-item"><i className="fas fa-phone-alt"></i> (555) 123-4567</a>
-                  <a href="mailto:quotes@yourbrand.com" className="ft-c-item"><i className="fas fa-envelope"></i> quotes@yourbrand.com</a>
+                  <a href="mailto:quotes@roofcoat.com" className="ft-c-item"><i className="fas fa-envelope"></i> quotes@roofcoat.com</a>
                   <div className="ft-c-item"><i className="fas fa-map-marker-alt"></i> 1234 Industry Ave, [City, ST] 00000</div>
                   <div className="ft-c-item"><i className="fas fa-clock"></i> Mon–Sat &middot; 7am–6pm</div>
                 </div>
@@ -547,9 +550,8 @@ export default function LandingPage() {
       </footer>
 
       <div className={`mob-s${showMobile ? " show" : ""}`} id="mobS">
-        <a href="tel:5551234567" className="mob-call"><i className="fas fa-phone-alt"></i></a>
         <a href="#hero-form" className="mob-cta" onClick={smoothScroll}>
-          Get Free Inspection <i className="fas fa-arrow-right" style={{ marginLeft: 6, fontSize: 11 }}></i>
+          Get My Free Quote <i className="fas fa-arrow-right" style={{ marginLeft: 6, fontSize: 11 }}></i>
         </a>
       </div>
     </>
