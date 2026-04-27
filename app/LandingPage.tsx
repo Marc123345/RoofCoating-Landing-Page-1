@@ -42,6 +42,7 @@ export default function LandingPage() {
   const nextVid = () => switchVid((currentVideo + 1) % videos.length);
 
   const galleryRef = useRef<HTMLDivElement | null>(null);
+  const formContainerRef = useRef<HTMLDivElement | null>(null);
   const workImages = ["34.png", "20.png", "35.png", "22.png", "37.png", "26.png", "30.png", "23.png", "29.png", "13.png"];
   const scrollGallery = (dir: -1 | 1) => {
     const track = galleryRef.current;
@@ -52,19 +53,13 @@ export default function LandingPage() {
   };
 
   useEffect(() => {
-    const jf = document.createElement("script");
-    jf.src = "https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js";
-    jf.async = true;
-    jf.onload = () => {
-      const w = window as unknown as { jotformEmbedHandler?: (sel: string, base: string) => void };
-      if (w.jotformEmbedHandler) {
-        w.jotformEmbedHandler("iframe[id='JotFormIFrame-261093407189057']", "https://form.jotform.com/");
-      }
-    };
-    document.body.appendChild(jf);
-    return () => {
-      if (jf.parentNode) jf.parentNode.removeChild(jf);
-    };
+    const container = formContainerRef.current;
+    if (!container) return;
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://form.jotform.com/jsform/261163006523042";
+    container.appendChild(script);
+    return () => { script.remove(); };
   }, []);
 
   useEffect(() => {
@@ -253,14 +248,7 @@ export default function LandingPage() {
                   </svg>
                 </div>
                 <div className="hf-bare slide-right" id="hero-form">
-                  <iframe
-                    id="JotFormIFrame-261093407189057"
-                    title="Free Roof Coating Assessment Form"
-                    allow="geolocation; microphone; camera; fullscreen"
-                    src="https://form.jotform.com/261093407189057"
-                    className="hf-iframe"
-                    scrolling="no"
-                  ></iframe>
+                  <div ref={formContainerRef} />
                 </div>
               </div>
             </div>
