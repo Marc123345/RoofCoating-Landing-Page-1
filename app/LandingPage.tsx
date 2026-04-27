@@ -137,12 +137,12 @@ export default function LandingPage() {
   ];
 
   const benefits = [
-    { icon: "fa-dollar-sign", title: "Save up to 75% vs. Replacement", body: "Average replacement: $8–$14/sq ft. Coating: $3–$5. On a 20,000 sq ft roof, that's $100K+ saved." },
-    { icon: "fa-volume-mute", title: "Zero Business Disruption", body: "No tear-off. No noise. No closed parking. Tenants won't know we're there." },
-    { icon: "fa-shield-alt", title: "15–20 Year Manufacturer Warranty", body: "Backed by the manufacturer, not just our word. Transferable for property sales." },
-    { icon: "fa-thermometer-quarter", title: "Energy Cost Reduction", body: "Reflective coatings cut rooftop temps by up to 60°F. Cooling costs drop 15–25%." },
-    { icon: "fa-leaf", title: "Environmentally Responsible", body: "Keep 20+ tons of roofing material out of the landfill. Coating restores — doesn't replace." },
-    { icon: "fa-clock", title: "Installed in 1–3 Days", body: "Most commercial roofs fully coated in 1–3 working days. Leak-free by end of week." },
+    { icon: "fa-dollar-sign", title: "Save Up To 75% — Period.", body: "Replacement: $8–$14/sq ft. Coating: $3–$5. On a 20,000 sq ft roof, you keep $100K+ in your pocket. Same waterproofing. Better warranty." },
+    { icon: "fa-volume-mute", title: "Zero Disruption — Tenants Won't Know", body: "No tear-off. No dumpsters. No closed parking. No noise. We're in and out before your tenants notice anything changed." },
+    { icon: "fa-shield-alt", title: "20-Year Manufacturer Warranty", body: "Backed in writing by the manufacturer — not a contractor handshake. Fully transferable when you sell the building." },
+    { icon: "fa-thermometer-quarter", title: "Cooling Bills Drop 25% — Day One", body: "Reflective coatings cut rooftop temps by up to 60°F. Your HVAC stops fighting the sun. Energy savings start the day we leave." },
+    { icon: "fa-leaf", title: "Keep 20+ Tons Out Of The Landfill", body: "Tear-offs send a mountain of debris to the dump. Coating restores what's already there — and your tenants love the green credentials." },
+    { icon: "fa-clock", title: "Bone-Dry In 3 Days Flat", body: "Most commercial roofs fully coated in 1–3 working days. Sealed, warrantied, and leak-free by the end of the week. No exceptions." },
   ];
 
   const process = [
@@ -218,17 +218,17 @@ export default function LandingPage() {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <h1 className="rv d1 hero-h1-stat">
-                Extend Your Roof's Life by <span className="hero-stat-big">10–20 Years</span>
+                <span className="hero-stat-big">75% Less</span> Than a
                 <br />
-                <span className="ul">For Far Less Than Replacement</span>
+                <span className="ul">Full Roof Replacement.</span>
               </h1>
               <p className="hero-sub rv d2">
-                Professional roof coating seals leaks, reflects heat, and slashes energy bills — without tearing off your existing roof.
+                Smart commercial owners are coating, not replacing. Seal every leak, slash cooling bills 25%, and lock in a 20-year manufacturer warranty — without one tear-off, one dumpster, or one disrupted tenant.
               </p>
               <ul className="hero-checks rv d3">
-                <li><i className="fas fa-check"></i> Save up to 75% vs. full roof replacement</li>
-                <li><i className="fas fa-check"></i> Extend roof life 10–20 years, manufacturer-backed</li>
-                <li><i className="fas fa-check"></i> Cut cooling costs up to 20% &middot; 1–3 day install</li>
+                <li><i className="fas fa-check"></i> Save up to 75% — keep that six-figure budget</li>
+                <li><i className="fas fa-check"></i> 20-year manufacturer warranty (transferable on sale)</li>
+                <li><i className="fas fa-check"></i> Bone-dry in 3 days flat &middot; Zero tenant disruption</li>
               </ul>
               <div className="hero-trust rv d4">
                 <div className="ht-stars" aria-hidden="true">
@@ -269,15 +269,39 @@ export default function LandingPage() {
       </section>
 
 
+      <section className="work-s">
+        <div className="wrap">
+          <div className="work-head">
+            <div>
+              <div className="tag rv"><span>Recent Work</span></div>
+              <h2 className="h2 rv d1">Real Roofs. Real Results. <em>Restored This Year.</em></h2>
+              <p className="body-t rv d2">1,200+ commercial roofs sealed and warrantied in the last 12 months. Zero tear-offs. Zero tenant disruption. Just bone-dry roofs and six-figure savings.</p>
+            </div>
+          </div>
+
+          <div className="work-carousel">
+            <button className="wc-nav wc-prev" onClick={() => scrollGallery(-1)} aria-label="Previous projects" type="button"><i className="fas fa-chevron-left"></i></button>
+            <div className="wc-track" ref={galleryRef}>
+              {workImages.map((file, i) => (
+                <div key={i} className="wc-slide">
+                  <img src={`https://ik.imagekit.io/qcvroy8xpd/${file}`} alt="Before and after roof coating project" loading="lazy" />
+                </div>
+              ))}
+            </div>
+            <button className="wc-nav wc-next" onClick={() => scrollGallery(1)} aria-label="Next projects" type="button"><i className="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </section>
+
       <section className="prob-s">
         <div className="wrap">
           <div className="prob-lay">
             <div className="prob-text slide-left">
               <div className="tag"><span>The Problem</span></div>
-              <h2 className="h2">Roof Leaking?<br />You Don't Need a $150,000 Replacement.</h2>
-              <p className="body-t">Every time it rains, you hold your breath. Water stains on ceiling tiles. Buckets in the hallway. Tenants complaining. You called a roofer — they quoted six figures for a full tear-off.</p>
-              <p className="body-t">But here's what most roofers won't tell you: if your roof deck is structurally sound, you don't need to replace it. You need to <strong>restore</strong> it.</p>
-              <div className="pq">A professional-grade silicone roof coating creates a seamless, waterproof membrane over your existing roof. No tear-off. No dumpsters. No weeks of noise.</div>
+              <h2 className="h2">Don't Sign That<br /><em>$150,000 Replacement Quote.</em></h2>
+              <p className="body-t">Every rainstorm is a panic attack. Water stains on the ceiling. Buckets in the hallway. Angry tenants on the phone. You call a roofer — they hand you a six-figure quote for a full tear-off you can't afford.</p>
+              <p className="body-t">Here's what most roofers will <em>never</em> tell you: if your roof deck is structurally sound, replacement is overkill. You don't need to <strong>tear it off</strong> — you need to <strong>restore it</strong>. For a fraction of the cost.</p>
+              <div className="pq">A professional-grade silicone coating creates one seamless, waterproof membrane over your existing roof. No tear-off. No dumpsters. No weeks of noise. Just a bone-dry roof, sealed and warrantied for the next 20 years.</div>
             </div>
             <div className="prob-vis slide-right">
               <div className="ba">
@@ -302,7 +326,7 @@ export default function LandingPage() {
       <section className="ben-s" id="ben">
         <div className="wrap">
           <div className="tag rv"><span>Benefits</span></div>
-          <h2 className="h2 rv d1">Why Building Owners Choose <em>Coating</em> Over Replacement</h2>
+          <h2 className="h2 rv d1">The 20-Year Roof Upgrade <em>Smart Owners</em> Already Know About</h2>
           <div className="bg">
             {benefits.map((b, i) => (
               <div key={i} className={`bc zoom-in${i > 0 ? " d" + (i % 5 || 1) : ""}`}>
@@ -327,8 +351,8 @@ export default function LandingPage() {
         <div className="wrap">
           <div className="proc-head">
             <div className="tag rv"><span>Process</span></div>
-            <h2 className="h2 rv d1">From Leaky Roof to <em>Lasting Protection</em></h2>
-            <p className="body-t rv d2">1,200+ roofs coated. Here's exactly what happens — no surprises, no hidden steps.</p>
+            <h2 className="h2 rv d1">Leaky Roof to <em>Bone-Dry</em> in 3 Days Flat</h2>
+            <p className="body-t rv d2">1,200+ roofs coated. The exact 4-step playbook we run on every job — no surprises, no hidden steps, no change orders.</p>
           </div>
           <div className="proc-lay">
             <div className="proc-vis rv">
@@ -387,7 +411,7 @@ export default function LandingPage() {
       <section className="case-s">
         <div className="wrap">
           <div className="tag tag-light rv"><span>Case Study</span></div>
-          <h2 className="h2 h2-w rv d1">How One Property Manager Saved <em>$127,000</em></h2>
+          <h2 className="h2 h2-w rv d1">How One Smart Property Manager Saved <em>$127,000</em> — In One Phone Call</h2>
           <div className="cs-grid">
             <div className="cs-i zoom-in"><div className="cs-lb">Building</div><div className="cs-v">45,000 ft²</div><div className="cs-sub">Commercial office</div></div>
             <div className="cs-i zoom-in d1"><div className="cs-lb">Replacement Quote</div><div className="cs-v">$189,000</div><div className="cs-sub">Full tear-off</div></div>
@@ -418,8 +442,8 @@ export default function LandingPage() {
           <div className="cmp-lay">
             <div className="cmp-side">
               <div className="tag rv"><span>Comparison</span></div>
-              <h2 className="h2 rv d1">Not All Roof Coaters Are <em>the Same</em></h2>
-              <p className="body-t rv d2">Surface prep is 80% of the job. The difference between 20 years and 2 is the crew applying it.</p>
+              <h2 className="h2 rv d1">Why 9 Out of 10 Roof Coaters Will <em>Cost You Twice</em></h2>
+              <p className="body-t rv d2">Surface prep is 80% of the job. The difference between a 20-year coating and a 2-year peel-off mess is the crew applying it. Pick wrong once and you'll pay for both.</p>
               <a href="#hero-form" className="btn-pill btn-pill-red rv d3" onClick={smoothScroll}>
                 Get Your Free Inspection
               </a>
@@ -436,30 +460,6 @@ export default function LandingPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="work-s">
-        <div className="wrap">
-          <div className="work-head">
-            <div>
-              <div className="tag rv"><span>Recent Work</span></div>
-              <h2 className="h2 rv d1">Projects Restored <em>This Year</em></h2>
-              <p className="body-t rv d2">A small sample of commercial roofs we've coated in the last 12 months — zero tear-offs, zero tenant disruption.</p>
-            </div>
-          </div>
-
-          <div className="work-carousel">
-            <button className="wc-nav wc-prev" onClick={() => scrollGallery(-1)} aria-label="Previous projects" type="button"><i className="fas fa-chevron-left"></i></button>
-            <div className="wc-track" ref={galleryRef}>
-              {workImages.map((file, i) => (
-                <div key={i} className="wc-slide">
-                  <img src={`https://ik.imagekit.io/qcvroy8xpd/${file}`} alt="Before and after roof coating project" loading="lazy" />
-                </div>
-              ))}
-            </div>
-            <button className="wc-nav wc-next" onClick={() => scrollGallery(1)} aria-label="Next projects" type="button"><i className="fas fa-chevron-right"></i></button>
           </div>
         </div>
       </section>
@@ -499,8 +499,8 @@ export default function LandingPage() {
           <div className="ind-head">
             <div>
               <div className="tag rv"><span>Commercial Focus</span></div>
-              <h2 className="h2 rv d1">Built for the Buildings <em>You Manage</em></h2>
-              <p className="body-t rv d2">Every commercial roof is different. We've coated 1,200+ across every category — from 5,000 sq ft storefronts to 150,000 sq ft distribution centers.</p>
+              <h2 className="h2 rv d1">Built for <em>Every</em> Building You Manage</h2>
+              <p className="body-t rv d2">1,200+ commercial roofs across 14 industries and 8 states. From 5,000 sq ft storefronts to 150,000 sq ft distribution centers — we've sealed every roof type the market has thrown at us.</p>
             </div>
             <div className="ind-counter rv d2">
               <span className="ind-counter-n">1,200+</span>
