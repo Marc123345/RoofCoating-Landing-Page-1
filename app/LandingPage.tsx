@@ -301,10 +301,6 @@ export default function LandingPage() {
             <em className="shock-highlight">75% less</em>{' '}
             than a full replacement.
           </p>
-          <a href="#hero-form" className="btn-pill btn-pill-red shock-cta" onClick={smoothScroll}>
-            <span>Find Out If You Qualify</span>
-            <i className="fas fa-arrow-right" />
-          </a>
         </div>
       </section>
 
