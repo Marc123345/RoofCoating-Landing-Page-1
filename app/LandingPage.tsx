@@ -7,6 +7,9 @@ export default function LandingPage() {
   const [showMobile, setShowMobile] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [heroSlide, setHeroSlide] = useState(0);
+  const [shockVisible, setShockVisible] = useState(false);
+  const [shockCount, setShockCount] = useState(0);
+  const shockRef = useRef<HTMLDivElement>(null);
   const heroSlides = [
     "https://ik.imagekit.io/qcvroy8xpd/Asyrc.png?updatedAt=1776008954670",
     "https://ik.imagekit.io/qcvroy8xpd/Sylicone.jpeg?updatedAt=1776009369481",
@@ -40,6 +43,27 @@ export default function LandingPage() {
   };
   const prevVid = () => switchVid(currentVideo === 0 ? videos.length - 1 : currentVideo - 1);
   const nextVid = () => switchVid((currentVideo + 1) % videos.length);
+
+  useEffect(() => {
+    const el = shockRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setShockVisible(true);
+        const duration = 2000;
+        const start = performance.now();
+        const tick = (now: number) => {
+          const p = Math.min((now - start) / duration, 1);
+          setShockCount(Math.round(p * p * 91));
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        io.disconnect();
+      }
+    }, { threshold: 0.3 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   const galleryRef = useRef<HTMLDivElement | null>(null);
   const formContainerRef = useRef<HTMLDivElement | null>(null);
@@ -256,6 +280,33 @@ export default function LandingPage() {
         </div>
       </section>
 
+
+      <section className="shock-s" ref={shockRef}>
+        <div className="shock-grain" aria-hidden="true" />
+        <div className="wrap shock-wrap">
+          <p className="shock-eyebrow">The Statistic That Changes Everything</p>
+          <div className="shock-counter">
+            <span className="shock-num">{shockCount}</span>
+            <span className="shock-sign">%</span>
+          </div>
+          <div className="shock-bar-track">
+            <div className="shock-bar-fill" style={{ width: shockVisible ? '91%' : '0%' }} />
+            <span className="shock-bar-label">91% of owners</span>
+          </div>
+          <p className="shock-stmt">
+            of commercial roof owners{' '}
+            <strong>don&apos;t know</strong> they can restore
+            <br className="shock-br" />
+            their roof for{' '}
+            <em className="shock-highlight">75% less</em>{' '}
+            than a full replacement.
+          </p>
+          <a href="#hero-form" className="btn-pill btn-pill-red shock-cta" onClick={smoothScroll}>
+            <span>Find Out If You Qualify</span>
+            <i className="fas fa-arrow-right" />
+          </a>
+        </div>
+      </section>
 
       <section className="work-s">
         <div className="wrap">
