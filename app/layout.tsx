@@ -1,24 +1,17 @@
 import type { Metadata } from "next";
-import { Instrument_Sans, Lora, IBM_Plex_Mono } from "next/font/google";
+import { Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
 
-const instrument = Instrument_Sans({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--next-font-d",
-  display: "swap",
-});
-const lora = Lora({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   variable: "--next-font-b",
   display: "swap",
 });
-const plex = IBM_Plex_Mono({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--next-font-m",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--next-font-d",
   display: "swap",
 });
 
@@ -41,7 +34,7 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         />
       </head>
-      <body className={`${instrument.variable} ${lora.variable} ${plex.variable}`}>
+      <body className={`${montserrat.variable} ${poppins.variable}`}>
         {children}
       </body>
     </html>
