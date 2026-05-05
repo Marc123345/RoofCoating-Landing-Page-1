@@ -123,8 +123,6 @@ export default function LandingPage() {
   }, []);
 
   const galleryRef = useRef<HTMLDivElement | null>(null);
-  const formContainerRef = useRef<HTMLDivElement | null>(null);
-
   const workImages = ["34.png", "20.png", "35.png", "22.png", "37.png", "26.png", "30.png", "23.png", "29.png", "13.png"];
 
   const scrollGallery = (dir: -1 | 1) => {
@@ -136,12 +134,12 @@ export default function LandingPage() {
   };
 
   useEffect(() => {
-    const container = formContainerRef.current;
-    if (!container) return;
     const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = "https://form.jotform.com/jsform/261163006523042";
-    container.appendChild(script);
+    script.src = "https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js";
+    script.onload = () => {
+      (window as any).jotformEmbedHandler("iframe[id='JotFormIFrame-261243265404147']", "https://form.jotform.com/");
+    };
+    document.body.appendChild(script);
     return () => { script.remove(); };
   }, []);
 
@@ -285,9 +283,9 @@ export default function LandingPage() {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <h1 className="rv d1 hero-h1-stat">
-                <span className="hero-stat-big">75% Less</span> Than a
+                Restore Your Roof for <span className="hero-stat-big">75% Less</span>
                 <br />
-                <span className="ul">Full Roof Replacement.</span>
+                <span className="ul">with a Roof Coating.</span>
               </h1>
               <p className="hero-sub rv d2">Seal every leak, save 75%, and get a 20-year warranty.</p>
               <p className="rv d4" style={{ fontSize: 13, color: "rgba(255,255,255,.55)", marginBottom: 20 }}>
@@ -316,7 +314,17 @@ export default function LandingPage() {
                   </svg>
                 </div>
                 <div className="hf-bare slide-right" id="hero-form">
-                  <div ref={formContainerRef} />
+                  <iframe
+                    id="JotFormIFrame-261243265404147"
+                    title="Clone of Get Your Roof Coating Deal"
+                    onLoad={() => window.parent.scrollTo(0, 0)}
+                    allowTransparency={true}
+                    allow="geolocation; microphone; camera; fullscreen; payment"
+                    src="https://form.jotform.com/261243265404147"
+                    frameBorder={0}
+                    style={{ minWidth: "100%", maxWidth: "100%", height: 539, border: "none" }}
+                    scrolling="no"
+                  />
                 </div>
               </div>
             </div>
