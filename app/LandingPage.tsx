@@ -258,9 +258,6 @@ export default function LandingPage() {
                 </a>
               ))}
             </div>
-            <a href="#hero-form" className="btn-pill btn-pill-red nav-pill" onClick={smoothScroll}>
-              <span>See If You Qualify</span>
-            </a>
           </div>
         </div>
       </nav>
@@ -274,18 +271,6 @@ export default function LandingPage() {
             aria-hidden="true"
           />
         ))}
-        <div className="hero-bg-dots" role="tablist" aria-label="Hero background">
-          {heroSlides.map((_, i) => (
-            <button
-              key={i}
-              className={i === heroSlide ? "active" : ""}
-              onClick={() => setHeroSlide(i)}
-              aria-label={`Background ${i + 1}`}
-              aria-selected={i === heroSlide}
-              type="button"
-            />
-          ))}
-        </div>
         <svg className="hero-lines" viewBox="0 0 1440 900" preserveAspectRatio="none">
           <line x1="0" y1="0" x2="1440" y2="900" stroke="rgba(200,16,46,.06)" strokeWidth="1" />
           <line x1="1440" y1="0" x2="0" y2="900" stroke="rgba(255,255,255,.02)" strokeWidth="1" />
@@ -307,14 +292,6 @@ export default function LandingPage() {
               <p className="hero-sub rv d2">
                 Smart commercial owners are coating, not replacing. Manufacturer-backed silicone seals every leak, slashes cooling bills 25%, and locks in a 20-year warranty — without one tear-off, one dumpster, or one disrupted tenant.
               </p>
-              <div className="rv d3" style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 24 }}>
-                <a href="#hero-form" className="btn-pill btn-pill-red" onClick={smoothScroll}>
-                  Free Assessment
-                </a>
-                <a href="#hero-form" className="btn-pill btn-pill-outline" onClick={smoothScroll}>
-                  See If Your Roof Qualifies
-                </a>
-              </div>
               <p className="rv d4" style={{ fontSize: 13, color: "rgba(255,255,255,.55)", marginBottom: 20 }}>
                 30-second form &middot; Report + quote within 24 hrs
               </p>
@@ -490,9 +467,6 @@ export default function LandingPage() {
               ))}
             </ol>
           </div>
-          <div className="proc-cta rv d2">
-            <a href="#hero-form" className="btn-pill btn-pill-red" onClick={smoothScroll}>Get Your Free Report</a>
-          </div>
         </div>
       </section>
 
@@ -511,11 +485,6 @@ export default function LandingPage() {
                 <p>{b.body}</p>
               </div>
             ))}
-          </div>
-          <div className="rv d3" style={{ textAlign: "center", marginTop: 48 }}>
-            <a href="#hero-form" className="btn-pill btn-pill-red" onClick={smoothScroll}>
-              Get Your Free Report
-            </a>
           </div>
         </div>
       </section>
@@ -587,7 +556,7 @@ export default function LandingPage() {
                 <p>"We were ready to write a check for $189K. They saved us six figures and the roof has been bone dry since. I wish I'd called them first."</p>
                 <cite>
                   <strong><i className="fas fa-user-tie" style={{ marginRight: 6, fontSize: 11, color: "var(--amber)" }}></i> Michael Hartman</strong>
-                  <span>Property Manager &middot; [City] Commercial Office Park</span>
+                  <span>Property Manager &middot; Commercial Office Park</span>
                 </cite>
               </div>
             </div>
@@ -604,7 +573,6 @@ export default function LandingPage() {
               <p className="rv d2" style={{ fontSize: 15, lineHeight: 1.72, color: "var(--ink-soft)", marginBottom: 24 }}>
                 Can't find your answer? Send us the details and we'll write back within 24 hours.
               </p>
-              <a href="#hero-form" className="btn-pill btn-pill-red rv d3" onClick={smoothScroll}>Book Free Inspection</a>
             </div>
             <div>
               {faqs.map((f, i) => (
