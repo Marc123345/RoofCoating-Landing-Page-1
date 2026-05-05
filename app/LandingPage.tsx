@@ -265,8 +265,8 @@ export default function LandingPage() {
           </svg>
         </div>
         <div className="wrap" style={{ width: "100%" }}>
-          <div className="row align-items-center">
-            <div className="col-lg-6">
+          <div className="hero-stack">
+            <div className="hero-stack-text">
               <div className="hero-badge rv d1">
                 <span className="dot" />
                 <span>Free Commercial Roof Assessment</span>
@@ -277,35 +277,19 @@ export default function LandingPage() {
                 <span className="ul">with a Roof Coating.</span>
               </h1>
               <p className="hero-sub rv d2">See if you qualify in 10 seconds &nbsp;→</p>
-              <div className="hero-trust rv d4">
-                <div className="ht-stars" aria-hidden="true">
-                  <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i>
-                </div>
-                <div className="ht-facts">
-                  <span><strong>4.9 / 5</strong> on Google</span>
-                  <span className="ht-sep" />
-                  <span><strong>1,200+</strong> Roofs Coated</span>
-                  <span className="ht-sep" />
-                  <span><strong>20-yr</strong> Warranty</span>
-                </div>
-              </div>
             </div>
-            <div className="col-lg-6">
-              <div className="hf-wrap">
-                <div className="hf-bare slide-right" id="hero-form">
-                  <iframe
-                    id="JotFormIFrame-261243265404147"
-                    title="Clone of Get Your Roof Coating Deal"
-                    onLoad={() => window.parent.scrollTo(0, 0)}
-                    allowTransparency={true}
-                    allow="geolocation; microphone; camera; fullscreen; payment"
-                    src="https://form.jotform.com/261243265404147?isIframeEmbed=1"
-                    frameBorder={0}
-                    style={{ minWidth: "100%", maxWidth: "100%", height: 539, border: "none" }}
-                    scrolling="no"
-                  />
-                </div>
-              </div>
+            <div className="hf-bare" id="hero-form">
+              <iframe
+                id="JotFormIFrame-261243265404147"
+                title="Clone of Get Your Roof Coating Deal"
+                onLoad={() => window.parent.scrollTo(0, 0)}
+                allowTransparency={true}
+                allow="geolocation; microphone; camera; fullscreen; payment"
+                src="https://form.jotform.com/261243265404147?isIframeEmbed=1"
+                frameBorder={0}
+                style={{ minWidth: "100%", maxWidth: "100%", height: 539, border: "none" }}
+                scrolling="no"
+              />
             </div>
           </div>
         </div>
