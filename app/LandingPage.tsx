@@ -242,21 +242,6 @@ export default function LandingPage() {
             <LogoMark size={34} />
             <span className="nav-br-txt">Roof Coat</span>
           </a>
-          <div className="nav-act" style={{ gap: 28 }}>
-            <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
-              {navLinks.map((link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
-                  className="nav-ph"
-                  onClick={smoothScroll}
-                  style={{ fontSize: 13, fontWeight: 600 }}
-                >
-                  {link}
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
       </nav>
 
@@ -606,91 +591,10 @@ export default function LandingPage() {
       </section>
 
       <footer className="footer">
-        <div className="ft-main">
-          <div className="wrap">
-            <div className="ft-grid">
-              <div className="ft-col ft-brand-col">
-                <div className="ft-brand-row">
-                  <LogoMark size={40} />
-                  <div className="ft-brand">Roof Coat</div>
-                </div>
-                <p className="ft-blurb">Manufacturer-backed silicone and acrylic coating systems for commercial property owners who'd rather restore than replace.</p>
-                <div style={{ marginTop: 20 }}>
-                  <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(255,255,255,.4)", marginBottom: 8 }}>Open Hours</div>
-                  <div style={{ fontSize: 13, color: "rgba(255,255,255,.6)", lineHeight: 1.9 }}>Mon – Sat: 7AM – 6PM<br />Sunday: Closed</div>
-                </div>
-              </div>
-
-              <div className="ft-col">
-                <div className="ft-label">Coating Services</div>
-                <ul className="ft-links">
-                  <li><a href="#">Silicone Roof Coating</a></li>
-                  <li><a href="#">Acrylic Roof Coating</a></li>
-                  <li><a href="#">Metal Roof Restoration</a></li>
-                  <li><a href="#">TPO / EPDM Restoration</a></li>
-                  <li><a href="#">Preventative Maintenance</a></li>
-                </ul>
-              </div>
-
-              <div className="ft-col">
-                <div className="ft-label">Useful Links</div>
-                <ul className="ft-links">
-                  <li><a href="#about" onClick={smoothScroll}>About</a></li>
-                  <li><a href="#benefits" onClick={smoothScroll}>Benefits</a></li>
-                  <li><a href="#projects" onClick={smoothScroll}>Recent Projects</a></li>
-                  <li><a href="#insights" onClick={smoothScroll}>Insights</a></li>
-                  <li><a href="#contact" onClick={smoothScroll}>Contact</a></li>
-                </ul>
-                <div style={{ marginTop: 28 }}>
-                  <div className="ft-label">Subscribe</div>
-                  <p style={{ fontSize: 13, color: "rgba(255,255,255,.5)", marginBottom: 12, lineHeight: 1.5 }}>Monthly coating tips, case studies, and ROI breakdowns for commercial owners.</p>
-                  <form style={{ display: "flex", gap: 8 }} onSubmit={(e) => e.preventDefault()}>
-                    <input
-                      type="email"
-                      placeholder="Email address"
-                      style={{
-                        flex: 1,
-                        padding: "10px 14px",
-                        background: "rgba(255,255,255,.06)",
-                        border: "1px solid rgba(255,255,255,.12)",
-                        color: "#fff",
-                        fontSize: 13,
-                        fontFamily: "var(--font-b)",
-                        outline: "none",
-                      }}
-                    />
-                    <button
-                      type="submit"
-                      style={{
-                        padding: "10px 16px",
-                        background: "var(--amber)",
-                        border: "none",
-                        color: "#fff",
-                        fontSize: 12,
-                        fontWeight: 700,
-                        fontFamily: "var(--font-d)",
-                        cursor: "pointer",
-                        letterSpacing: ".04em",
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      →
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div className="ft-btm">
           <div className="wrap">
             <div className="ft-btm-i">
               <span className="footer-lg">© 2026 Roof Coat. All Rights Reserved.</span>
-              <div className="ft-legal">
-                <a href="#">Terms &amp; Conditions</a>
-                <a href="#">Privacy Policy</a>
-              </div>
             </div>
           </div>
         </div>
