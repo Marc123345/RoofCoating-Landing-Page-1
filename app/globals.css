@@ -167,6 +167,7 @@ img{max-width:100%;display:block;margin:0;border:0;}a{text-decoration:none;color
 .hf-iframe{width:100%;min-width:100%;max-width:100%;border:none;display:block;min-height:640px;background:transparent;}
 .hf-bare{position:relative;z-index:5;background:transparent;border:none;box-shadow:none;padding:0;overflow:hidden;}
 .hf-bare::before{display:none;}
+#JotFormIFrame-261243265404147{width:100%!important;min-width:100%!important;}
 .fg{margin-bottom:12px;}
 .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
 .fg-row .fg{margin-bottom:0;}
