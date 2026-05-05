@@ -155,7 +155,7 @@ img{max-width:100%;display:block;margin:0;border:0;}a{text-decoration:none;color
 .auth-txt strong{font-family:var(--font-d);font-size:11px;font-weight:700;color:#fff;letter-spacing:-.005em;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .auth-txt small{font-family:var(--font-m);font-size:8px;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase;margin-top:3px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 
-.hero-stack{display:flex;flex-direction:column;gap:30px;max-width:680px;margin:0 auto;width:100%;}
+.hero-stack{display:flex;flex-direction:column;gap:12px;max-width:680px;margin:0 auto;width:100%;}
 .hero-stack-text{text-align:center;}
 .hero-stack-text .hero-badge{justify-content:center;}
 .hero-stack-text .hero-sub{max-width:100%;}
@@ -680,7 +680,7 @@ a.ft-c-item:hover{color:#fff;}
   .mob-call{width:52px;height:52px;font-size:20px;}
   .mob-cta{padding:16px 18px;font-size:14px;min-height:52px;}
 
-  .hero-stack{gap:1rem;}
+  .hero-stack{gap:8px;}
   .hero-cut svg{height:40px!important;}
   .form-embed{min-height:480px;}
 }
