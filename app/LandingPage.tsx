@@ -289,9 +289,7 @@ export default function LandingPage() {
                 <br />
                 <span className="ul">Full Roof Replacement.</span>
               </h1>
-              <p className="hero-sub rv d2">
-                Smart commercial owners are coating, not replacing. Manufacturer-backed silicone seals every leak, slashes cooling bills 25%, and locks in a 20-year warranty — without one tear-off, one dumpster, or one disrupted tenant.
-              </p>
+              <p className="hero-sub rv d2">Seal every leak, save 75%, and get a 20-year warranty.</p>
               <p className="rv d4" style={{ fontSize: 13, color: "rgba(255,255,255,.55)", marginBottom: 20 }}>
                 30-second form &middot; Report + quote within 24 hrs
               </p>
