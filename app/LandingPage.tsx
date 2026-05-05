@@ -303,16 +303,16 @@ export default function LandingPage() {
                   <span><strong>20-yr</strong> Warranty</span>
                 </div>
               </div>
+              <div className="hero-arrow rv d4" aria-hidden="true">
+                <span className="hero-arrow-txt">Fill it out</span>
+                <svg className="hero-arrow-svg" viewBox="0 0 120 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 5 42 C 30 42, 65 5, 112 18" stroke="var(--amber)" strokeWidth="2.5" strokeLinecap="round" />
+                  <path d="M 100 7 L 114 19 L 101 31" stroke="var(--amber)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                </svg>
+              </div>
             </div>
             <div className="col-lg-6">
               <div className="hf-wrap">
-                <div className="hero-arrow rv" aria-hidden="true">
-                  <span className="hero-arrow-txt">Start here</span>
-                  <svg className="hero-arrow-svg" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 10 12 C 30 12, 80 14, 95 78" stroke="var(--amber)" strokeWidth="2.5" strokeLinecap="round" />
-                    <path d="M 82 64 L 96 82 L 108 60" stroke="var(--amber)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                  </svg>
-                </div>
                 <div className="hf-bare slide-right" id="hero-form">
                   <iframe
                     id="JotFormIFrame-261243265404147"
