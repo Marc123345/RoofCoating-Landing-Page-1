@@ -282,15 +282,21 @@ export default function LandingPage() {
         <div className="wrap" style={{ width: "100%" }}>
           <div className="row align-items-center">
             <div className="col-lg-6">
+              <div className="hero-badge rv d1">
+                <span className="dot" />
+                <span>Free Commercial Roof Assessment</span>
+              </div>
               <h1 className="rv d1 hero-h1-stat">
                 Restore Your Roof for <span className="hero-stat-big">75% Less</span>
                 <br />
                 <span className="ul">with a Roof Coating.</span>
               </h1>
-              <p className="hero-sub rv d2">Seal every leak, save 75%, and get a 20-year warranty.</p>
-              <p className="rv d4" style={{ fontSize: 13, color: "rgba(255,255,255,.55)", marginBottom: 20 }}>
-                30-second form &middot; Report + quote within 24 hrs
-              </p>
+              <p className="hero-sub rv d2">Seal every leak, save 75%, and get a 20-year warranty — without a single tear-off.</p>
+              <ul className="hero-checks rv d3">
+                <li><i className="fas fa-check" />&nbsp;No tear-off, no dumpsters, no tenant disruption</li>
+                <li><i className="fas fa-check" />&nbsp;Installed in 1–3 days on any flat or low-slope roof</li>
+                <li><i className="fas fa-check" />&nbsp;Manufacturer-backed warranty up to 20 years</li>
+              </ul>
               <div className="hero-trust rv d4">
                 <div className="ht-stars" aria-hidden="true">
                   <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i>
