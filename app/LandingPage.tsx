@@ -282,7 +282,6 @@ export default function LandingPage() {
                 <br />
                 <span className="ul">with a Roof Coating.</span>
               </h1>
-              <p className="hero-sub rv d2">See if you qualify in 10 seconds &nbsp;→</p>
             </div>
             <div className="form-embed" id="hero-form">
               <iframe
