@@ -679,6 +679,10 @@ a.ft-c-item:hover{color:#fff;}
   .mob-s{display:flex;padding:10px 14px;}
   .mob-call{width:52px;height:52px;font-size:20px;}
   .mob-cta{padding:16px 18px;font-size:14px;min-height:52px;}
+
+  .hero-stack{gap:1rem;}
+  .hero-cut svg{height:40px!important;}
+  #JotFormIFrame-261243265404147{height:480px!important;}
 }
 @media(max-width:380px){
   .cs-grid{grid-template-columns:1fr;}
