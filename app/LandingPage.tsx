@@ -314,6 +314,11 @@ export default function LandingPage() {
                   </svg>
                 </div>
                 <div className="hf-bare slide-right" id="hero-form">
+                  <div style={{ marginBottom: 20 }}>
+                    <h3 style={{ fontSize: 22, fontWeight: 800, marginBottom: 10 }}>Stop Replacing. Start Restoring.</h3>
+                    <p style={{ fontSize: 14, lineHeight: 1.6, marginBottom: 10 }}>Why pay for a full replacement when SPF costs 75% less? Your commercial property could be the perfect candidate for a high-performance restoration.</p>
+                    <p style={{ fontSize: 13, fontWeight: 600 }}>Take the 30-Second Qualification Quiz below to see your potential savings.</p>
+                  </div>
                   <iframe
                     id="JotFormIFrame-261243265404147"
                     title="Clone of Get Your Roof Coating Deal"
