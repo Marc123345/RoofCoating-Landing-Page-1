@@ -134,13 +134,19 @@ export default function LandingPage() {
   };
 
   useEffect(() => {
+    let obs: MutationObserver | null = null;
     const script = document.createElement("script");
     script.src = "https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js";
     script.onload = () => {
       (window as any).jotformEmbedHandler("iframe[id='JotFormIFrame-261243265404147']", "https://form.jotform.com/");
+      const iframe = document.getElementById("JotFormIFrame-261243265404147") as HTMLElement | null;
+      if (iframe) {
+        obs = new MutationObserver(() => { if (iframe.style.height) iframe.style.height = ""; });
+        obs.observe(iframe, { attributes: true, attributeFilter: ["style"] });
+      }
     };
     document.body.appendChild(script);
-    return () => { script.remove(); };
+    return () => { script.remove(); obs?.disconnect(); };
   }, []);
 
   useEffect(() => {
@@ -278,7 +284,7 @@ export default function LandingPage() {
               </h1>
               <p className="hero-sub rv d2">See if you qualify in 10 seconds &nbsp;→</p>
             </div>
-            <div className="hf-bare" id="hero-form">
+            <div className="form-embed" id="hero-form">
               <iframe
                 id="JotFormIFrame-261243265404147"
                 title="Clone of Get Your Roof Coating Deal"
@@ -287,7 +293,6 @@ export default function LandingPage() {
                 allow="geolocation; microphone; camera; fullscreen; payment"
                 src="https://form.jotform.com/261243265404147?isIframeEmbed=1"
                 frameBorder={0}
-                style={{ minWidth: "100%", maxWidth: "100%", border: "none" }}
                 scrolling="no"
               />
             </div>
