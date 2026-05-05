@@ -279,6 +279,11 @@ export default function LandingPage() {
                 <span className="ul">with a Roof Coating.</span>
               </h1>
             </div>
+            <div className="hero-arrow-wrap" aria-hidden="true">
+              <div className="hero-arrow">
+                <svg width="38" height="24" viewBox="0 0 38 24" fill="none"><path d="M3 3L19 21L35 3" stroke="white" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </div>
+            </div>
             <div className="form-embed">
               <iframe
                 id="JotFormIFrame-261243544700045"

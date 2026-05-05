@@ -157,6 +157,9 @@ img{max-width:100%;display:block;margin:0;border:0;}a{text-decoration:none;color
 
 .hero-stack{display:flex;flex-direction:column;gap:0;max-width:680px;margin:0 auto;width:100%;}
 .hero-stack-text{text-align:center;}
+.hero-arrow-wrap{position:relative;height:0;width:100%;overflow:visible;display:flex;justify-content:center;z-index:5;pointer-events:none;}
+.hero-arrow{position:absolute;top:0;left:50%;transform:translateX(-50%) translateY(-50%);animation:hero-arrow-bounce 1.5s ease-in-out infinite;}
+@keyframes hero-arrow-bounce{0%,100%{transform:translateX(-50%) translateY(-50%);opacity:.6;}50%{transform:translateX(-50%) translateY(-15%);opacity:1;}}
 .hero-stack-text .hero-badge{justify-content:center;}
 .hero-stack-text .hero-sub{max-width:100%;}
 .hf-wrap{position:relative;z-index:5;}
