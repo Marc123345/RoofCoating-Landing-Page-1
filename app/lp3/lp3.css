@@ -1,0 +1,66 @@
+.lp3-root {
+  --primary: #E85D2A;
+  background: #0a1020;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+.lp3-root *, .lp3-root *::before, .lp3-root *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.lp3-root .hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px 40px;
+  background: #0a1020;
+}
+.lp3-root .hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://ik.imagekit.io/qcvroy8xpd/Asyrc.png?updatedAt=1776008954670');
+  background-size: cover; background-position: center; opacity: 0.3;
+}
+.lp3-root .hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, rgba(10,16,32,0.78) 0%, rgba(10,16,32,0.6) 100%);
+}
+.lp3-root .hero-content {
+  position: relative; z-index: 2;
+  width: 100%; max-width: 640px;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.lp3-root .hero-eyebrow {
+  display: inline-block;
+  font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 16px;
+  border: 1px solid rgba(232,93,42,.35);
+  padding: 5px 14px;
+}
+.lp3-root .hero h1 {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(32px, 4.6vw, 52px);
+  font-weight: 800; line-height: 1.15; letter-spacing: -.025em;
+  color: #fff; margin-bottom: 0; text-align: center;
+}
+.lp3-root .hero h1 .accent { color: var(--primary); }
+.lp3-root .form-embed { width: 100%; }
+.lp3-root .hero-arrow-wrap { position: relative; height: 0; width: 100%; overflow: visible; display: flex; justify-content: center; z-index: 5; pointer-events: none; }
+.lp3-root .hero-arrow { position: absolute; top: 0; left: 50%; transform: translateX(-50%) translateY(-50%); animation: hero-arrow-bounce 1.5s ease-in-out infinite; }
+.lp3-root .footer-strip {
+  position: relative; z-index: 2;
+  text-align: center; padding: 14px 20px; font-size: 11px;
+  color: rgba(255,255,255,.35); letter-spacing: .03em;
+  width: 100%; margin-top: 20px; max-width: 640px;
+}
+.lp3-root .footer-strip a { color: rgba(255,255,255,.5); text-decoration: none; margin: 0 6px; }
+.lp3-root .footer-strip a:hover { color: rgba(255,255,255,.8); }
+
+@media (max-width: 640px) {
+  .lp3-root .hero { min-height: auto; padding: 40px 16px 28px; }
+  .lp3-root .hero h1 { font-size: 30px; }
+  .lp3-root .footer-strip { margin-top: 12px; }
+}
