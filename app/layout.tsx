@@ -16,7 +16,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "[Your Brand] — Roof Coating Specialists | Free Inspection",
+  title: "Roof Coat Pros — Roof Coating Specialists | Free Inspection",
   description:
     "Save 50-70% vs roof replacement with professional silicone roof coating. Manufacturer warranty up to 20 years. Free inspection.",
 };
