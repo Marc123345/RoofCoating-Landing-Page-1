@@ -6,24 +6,24 @@ export default function SiteFooter() {
   return (
     <footer className="footer">
       <div className="wrap">
-        <div className="ft-top">
-          <div className="ft-brand">
-            <div className="ft-lg">
+        <div className="fx-top">
+          <div className="fx-brand">
+            <div className="fx-lg">
               <LogoMark size={30} />
               <span>{SITE.brand}</span>
             </div>
-            <p className="ft-blurb">
+            <p className="fx-blurb">
               {SITE.tagline}. We restore commercial flat and low-slope roofs with
               manufacturer-warrantied coating systems — no tear-off, no dumpsters, and
               a fraction of what replacement costs.
             </p>
-            <div className="ft-stats">
+            <div className="fx-stats">
               <div><strong>1,200+</strong><span>Roofs coated</span></div>
               <div><strong>20 yr</strong><span>Max warranty</span></div>
             </div>
           </div>
 
-          <div className="ft-col">
+          <div className="fx-col">
             <h4>Pages</h4>
             <ul>
               {NAV.map((l) => (
@@ -34,7 +34,7 @@ export default function SiteFooter() {
             </ul>
           </div>
 
-          <div className="ft-col">
+          <div className="fx-col">
             <h4>What We Coat</h4>
             <ul>
               <li>TPO &amp; PVC membrane</li>
@@ -45,14 +45,14 @@ export default function SiteFooter() {
             </ul>
           </div>
 
-          <div className="ft-col">
+          <div className="fx-col">
             <h4>Get In Touch</h4>
             <ul>
               <li><a href={SITE.phoneHref}>{SITE.phone}</a></li>
               <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
               <li>{SITE.hours}</li>
             </ul>
-            <Link href="/contact" className="btn-p btn-sm ft-cta">
+            <Link href="/contact" className="btn-p btn-sm fx-cta">
               Book a Free Inspection
             </Link>
           </div>

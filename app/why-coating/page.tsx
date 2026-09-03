@@ -26,7 +26,7 @@ export default function WhyCoatingPage() {
         image="https://ik.imagekit.io/qcvroy8xpd/Asyrc.png?updatedAt=1776008954670"
       />
 
-      <section className="cmp-s">
+      <section className="cmpx-s">
         <div className="wrap">
           <div className="tag rv"><span>Line By Line</span></div>
           <h2 className="h2 rv d1">Replacement vs. <em>Coating</em></h2>
