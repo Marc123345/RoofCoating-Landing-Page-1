@@ -1,8 +1,25 @@
 "use client";
 
 import { useEffect, useState, useRef, MouseEvent } from "react";
+import Link from "next/link";
+import SiteHeader from "./components/SiteHeader";
+import SiteFooter from "./components/SiteFooter";
 
-export default function LandingPage() {
+export default function LandingPage({
+  brand = "Roof Coat Pros",
+  // The multi-page chrome (real nav links, full footer, /roof-coating etc.) is
+  // ONLY for the main site. Brand subdomains must stay single-page: middleware
+  // rewrites every path under them to /<brand>/… and those routes don't exist.
+  multiPage = false,
+  // formId is no longer used: the Jotform embeds were all dead ("Form is
+  // missing") and were replaced by MultiStepForm. Kept so the brand pages that
+  // still pass it do not break; safe to remove once those are updated.
+  formId: _formId = "261243544700045",
+}: {
+  brand?: string;
+  formId?: string;
+  multiPage?: boolean;
+}) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -138,7 +155,7 @@ export default function LandingPage() {
     s1.src = "https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js";
     s1.onload = () => {
       const s2 = document.createElement("script");
-      s2.innerHTML = `window.jotformEmbedHandler("iframe[id='JotFormIFrame-261243544700045']", "https://form.jotform.com/")`;
+      s2.innerHTML = `window.jotformEmbedHandler("iframe[id='JotFormIFrame-262455881771063']", "https://form.jotform.com/")`;
       document.body.appendChild(s2);
     };
     document.body.appendChild(s1);
@@ -238,14 +255,18 @@ export default function LandingPage() {
 
   return (
     <>
-      <nav className={`nav-m${scrolled ? " sc" : ""}`} id="mainNav">
-        <div className="nav-i">
-          <a href="#" className="nav-br" onClick={smoothScroll}>
-            <LogoMark size={34} />
-            <span className="nav-br-txt">Roof Coat</span>
-          </a>
-        </div>
-      </nav>
+      {multiPage ? (
+        <SiteHeader />
+      ) : (
+        <nav className={`nav-m${scrolled ? " sc" : ""}`} id="mainNav">
+          <div className="nav-i">
+            <a href="#" className="nav-br" onClick={smoothScroll}>
+              <LogoMark size={34} />
+              <span className="nav-br-txt">{brand}</span>
+            </a>
+          </div>
+        </nav>
+      )}
 
       <section className="hero" id="hero">
         {heroSlides.map((src, i) => (
@@ -284,16 +305,15 @@ export default function LandingPage() {
                 <svg width="38" height="24" viewBox="0 0 38 24" fill="none"><path d="M3 3L19 21L35 3" stroke="white" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </div>
             </div>
-            <div className="form-embed">
+                        <div className="form-embed">
               <iframe
-                id="JotFormIFrame-261243544700045"
-                title="Roof Coating Deal Request"
+                id="JotFormIFrame-262455881771063"
+                title="Roof Coat Pros"
                 onLoad={() => window.parent.scrollTo(0, 0)}
-                allowTransparency={true}
                 allow="geolocation; microphone; camera; fullscreen; payment"
-                src="https://form.jotform.com/261243544700045"
+                src="https://form.jotform.com/262455881771063"
                 frameBorder={0}
-                style={{ minWidth: "100%", maxWidth: "100%", height: "539px", border: "none" }}
+                style={{ minWidth: "100%", maxWidth: "100%", border: "none" }}
                 scrolling="no"
               />
             </div>
@@ -387,6 +407,8 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {!multiPage && (
+        <>
       <section className="proc-s" id="projects">
         <div className="wrap">
           <div className="proc-head">
@@ -444,6 +466,8 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+        </>
+      )}
 
       <section className="ben-s" id="benefits">
         <div className="wrap">
@@ -464,6 +488,8 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {!multiPage && (
+        <>
       <section className="ind-s" id="insights">
         <div className="wrap">
           <div className="ind-head">
@@ -567,16 +593,51 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+        </>
+      )}
 
-      <footer className="footer">
-        <div className="ft-btm">
+      {multiPage && (
+        <section className="explore-s">
           <div className="wrap">
-            <div className="ft-btm-i">
-              <span className="footer-lg">© 2026 Roof Coat. All Rights Reserved.</span>
+            <div className="tag rv"><span>Explore</span></div>
+            <h2 className="h2 rv d1">Everything Else <em>Worth Knowing</em></h2>
+            <div className="explore-grid">
+              <Link href="/roof-coating" className="explore-card rv">
+                <i className="fas fa-layer-group" aria-hidden="true"></i>
+                <h3>Roof Coating Systems</h3>
+                <p>Silicone, acrylic or polyurethane — which system suits your roof, every membrane we coat, and the three-step process.</p>
+                <span className="explore-go">See the systems <i className="fas fa-arrow-right" aria-hidden="true"></i></span>
+              </Link>
+              <Link href="/why-coating" className="explore-card rv d1">
+                <i className="fas fa-balance-scale" aria-hidden="true"></i>
+                <h3>Coating vs. Replacement</h3>
+                <p>The comparison line by line — cost, time on site, disruption, warranty — plus the case study behind a $127,000 saving.</p>
+                <span className="explore-go">Compare the numbers <i className="fas fa-arrow-right" aria-hidden="true"></i></span>
+              </Link>
+              <Link href="/projects" className="explore-card rv d2">
+                <i className="fas fa-camera" aria-hidden="true"></i>
+                <h3>Recent Projects</h3>
+                <p>Finished roofs from the last twelve months, and footage of a coating going down from prep to warrantied membrane.</p>
+                <span className="explore-go">View the work <i className="fas fa-arrow-right" aria-hidden="true"></i></span>
+              </Link>
             </div>
           </div>
-        </div>
-      </footer>
+        </section>
+      )}
+
+      {multiPage ? (
+        <SiteFooter />
+      ) : (
+        <footer className="footer">
+          <div className="ft-btm">
+            <div className="wrap">
+              <div className="ft-btm-i">
+                <span className="footer-lg">© 2026 {brand}. All Rights Reserved.</span>
+              </div>
+            </div>
+          </div>
+        </footer>
+      )}
     </>
   );
 }
